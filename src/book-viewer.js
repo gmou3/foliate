@@ -767,17 +767,7 @@ export const BookViewer = GObject.registerClass({
         if (identifier) {
             this.#data = await dataStore.get(identifier, this._view)
             const { annotations, bookmarks } = this.#data
-            // TODO: run this in background
-            const locationToReturn = this.#data.storage.get('lastLocation')
-            for (const annotation of annotations.export()) {
-                await this._view.goTo(annotation.value)
-                annotationFractions.set(annotation.value, this._navbar._progress_scale.get_value())
-            }
-            await this._view.goTo(locationToReturn)
-            // TODO: clear history
-            sectionFractions = reader.sectionFractions
-            this._navbar.loadMarks(sectionFractions, annotationFractions)
-            this._top_overlay_box.hide()
+            this._navbar.loadAnnotations(annotations.export())
             this._annotation_view.setupModel(annotations)
             this._bookmark_view.setupModel(bookmarks)
             const updateAnnotations = () => this._annotation_stack
