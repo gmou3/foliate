@@ -4,6 +4,7 @@ import Pango from 'gi://Pango'
 import * as utils from './utils.js'
 import * as format from './format.js'
 import './tts.js'
+import * as CFI from './foliate-js/epubcfi.js'
 
 const ONE_HUNDRED_PERCENT_LENGTH = format.percent(1).length
 
@@ -108,6 +109,24 @@ GObject.registerClass({
         for (const fraction of fractions.slice(1, -1))
             this.add_mark(fraction, Gtk.PositionType.TOP, null)
     }
+    loadAnnotations(annotations) {
+        const parts = CFI.parse(annotations[0].value)
+        const top = (parts.parent ?? parts).shift()
+        let $itemref = CFI.toElement(this.opf, top)
+        // make sure it's an idref; if not, try again without the ID assertion
+        // mainly because Epub.js used to generate wrong ID assertions
+        // https://github.com/futurepress/epub.js/issues/1236
+        if ($itemref && $itemref.nodeName !== 'idref') {
+            top.at(-1).id = null
+            $itemref = CFI.toElement(this.opf, top)
+        }
+        const idref = $itemref?.getAttribute('idref')
+        const index = this.spine.findIndex(item => item.idref === idref)
+        const anchor = doc => CFI.toRange(doc, parts)
+        console.log(index, anchor)
+        console.log(annotations, annotations[0].value)
+        this.add_mark(CFI.collapse(annotations[0].value), Gtk.PositionType.BOTTOM, null)
+    }
     update(fraction) {
         if (this.#shouldUpdate) {
             this.#shouldGo = false
@@ -201,6 +220,9 @@ GObject.registerClass({
     }
     loadSectionFractions(fractions) {
         this._progress_scale.loadSectionFractions(fractions)
+    }
+    loadAnnotations(annotations) {
+        this._progress_scale.loadAnnotations(annotations)
     }
     loadPageList(pageList, total) {
         if (!pageList?.length) {
