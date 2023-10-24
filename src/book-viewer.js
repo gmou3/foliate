@@ -745,7 +745,6 @@ export const BookViewer = GObject.registerClass({
 
         this._toc_view.load(book.toc)
         this._navbar.setDirection(book.dir)
-        this._navbar.loadSectionFractions(reader.sectionFractions)
         this._navbar.loadPageList(book.pageList, reader.pageTotal)
         this._navbar.loadLandmarks(book.landmarks)
         this._navbar.setTTSType(book.media?.duration?.[''] ? 'media-overlay' : 'tts')
@@ -766,7 +765,7 @@ export const BookViewer = GObject.registerClass({
         if (identifier) {
             this.#data = await dataStore.get(identifier, this._view)
             const { annotations, bookmarks } = this.#data
-            this._navbar.loadAnnotations(annotations.export(), book)
+            this._navbar.loadMarks(book, annotations.export())
             this._annotation_view.setupModel(annotations)
             this._bookmark_view.setupModel(bookmarks)
             const updateAnnotations = () => this._annotation_stack
@@ -798,13 +797,18 @@ export const BookViewer = GObject.registerClass({
             this.#data.storage.set('lastLocation', cfi)
         }
     }
-    #deleteAnnotation(annotation) {
-        this.#data.deleteAnnotation(annotation)
+    async #deleteAnnotation(annotation) {
+        await this.#data.deleteAnnotation(annotation)
+        this._navbar.loadMarks(this.#book, this.#data.annotations.export())
         this.root.add_toast(utils.connect(new Adw.Toast({
             title: _('Annotation deleted'),
             button_label: _('Undo'),
-        }), { 'button-clicked': () =>
-            this.#data.addAnnotation(annotation) }))
+        }), { 'button-clicked': () => {
+            this.#data.addAnnotation(annotation)
+            setTimeout(() => {
+                this._navbar.loadMarks(this.#book, this.#data.annotations.export())
+            }, 100)
+        } }))
     }
     #showSelection({ type, value, text, lang, pos: { point, dir } }) {
         if (type === 'annotation') return new Promise(resolve => {
@@ -833,6 +837,9 @@ export const BookViewer = GObject.registerClass({
                         color: this.highlight_color,
                         created: new Date().toISOString(),
                     }).then(() => resolve('highlight'))
+                    setTimeout(() => {
+                        this._navbar.loadMarks(this.#book, this.#data.annotations.export())
+                    }, 100)
                 },
                 'search': () => {
                     this._search_entry.text = text
