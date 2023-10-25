@@ -122,7 +122,7 @@ GObject.registerClass({
                 const fraction = annotation.location / annotation.total + Number.EPSILON
                 this.add_mark(fraction, Gtk.PositionType.BOTTOM, null)
             }
-        } 
+        }
     }
     update(fraction) {
         if (this.#shouldUpdate) {
