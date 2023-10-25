@@ -4,7 +4,6 @@ import Pango from 'gi://Pango'
 import * as utils from './utils.js'
 import * as format from './format.js'
 import './tts.js'
-import * as CFI from './foliate-js/epubcfi.js'
 
 const ONE_HUNDRED_PERCENT_LENGTH = format.percent(1).length
 
