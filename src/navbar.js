@@ -103,20 +103,12 @@ GObject.registerClass({
             }
         })
     }
+    loadSectionFractions(fractions) {
     async loadMarks(sections, annotations, annotationFractions) {
         // add section and annotation marks
         this.clear_marks()
-        const sizes = sections.filter(s => s.linear !== 'no').map(s => s.size)
-        const total = sizes.reduce((a, b) => a + b, 0)
-        let sum = 0
-        for (const size of sizes.slice(0, -1)) {
-            sum += size
-            // add epsilon so it will snap to section start
-            const fraction = sum / total + Number.EPSILON
+        for (const fraction of fractions.slice(1, -1))
             this.add_mark(fraction, Gtk.PositionType.TOP, null)
-        }
-        for (const annotation of annotations.export()) {
-            this.add_mark(annotationFractions.get(annotation.value), Gtk.PositionType.BOTTOM, null) }
     }
     update(fraction) {
         if (this.#shouldUpdate) {
@@ -211,6 +203,8 @@ GObject.registerClass({
     }
     loadMarks(sections, annotations, annotationFractions) {
         this._progress_scale.loadMarks(sections, annotations, annotationFractions)
+    loadSectionFractions(fractions) {
+        this._progress_scale.loadSectionFractions(fractions)
     }
     loadPageList(pageList, total) {
         if (!pageList?.length) {
