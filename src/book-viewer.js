@@ -22,6 +22,7 @@ import { formatAuthors, makeBookInfoWindow } from './book-info.js'
 import { themes, invertTheme } from './themes.js'
 import { dataStore } from './data.js'
 
+var sectionFractions
 const annotationFractions = new Map()
 
 // for use in the WebView
@@ -731,7 +732,6 @@ export const BookViewer = GObject.registerClass({
 
         this._toc_view.load(book.toc)
         this._navbar.setDirection(book.dir)
-        this._navbar.loadSectionFractions(reader.sectionFractions)
         this._navbar.loadPageList(book.pageList, reader.pageTotal)
         this._navbar.loadLandmarks(book.landmarks)
         this._navbar.setTTSType(book.media?.duration?.[''] ? 'media-overlay' : 'tts')
@@ -760,7 +760,8 @@ export const BookViewer = GObject.registerClass({
             }
             await this._view.goTo(locationToReturn)
             // TODO: clear history
-            this._navbar.loadMarks(book.sections, annotations, annotationFractions)
+            sectionFractions = reader.sectionFractions
+            this._navbar.loadMarks(sectionFractions, annotationFractions)
             this._top_overlay_box.hide()
             this._annotation_view.setupModel(annotations)
             this._bookmark_view.setupModel(bookmarks)
@@ -796,14 +797,14 @@ export const BookViewer = GObject.registerClass({
     async #deleteAnnotation(annotation) {
         await this.#data.deleteAnnotation(annotation)
         annotationFractions.delete(annotation.value)
-        this._navbar.loadMarks(this.#book.sections, this.#data.annotations, annotationFractions )
+        this._navbar.loadMarks(sectionFractions, annotationFractions )
         this.root.add_toast(utils.connect(new Adw.Toast({
             title: _('Annotation deleted'),
             button_label: _('Undo'),
         }), { 'button-clicked': () => {
             this.#data.addAnnotation(annotation).then(() => {
                 annotationFractions.set(annotation.value, this._navbar._progress_scale.get_value())
-                this._navbar.loadMarks(this.#book.sections, this.#data.annotations, annotationFractions)
+                this._navbar.loadMarks(sectionFractions, annotationFractions)
             })
         }}))
     }
@@ -836,7 +837,7 @@ export const BookViewer = GObject.registerClass({
                     }).then(() => {
                         resolve('highlight')
                         annotationFractions.set(value, this._navbar._progress_scale.get_value())
-                        this._navbar.loadMarks(this.#book.sections, this.#data.annotations, annotationFractions)
+                        this._navbar.loadMarks(sectionFractions, annotationFractions)
                     })
                 },
                 'search': () => {
