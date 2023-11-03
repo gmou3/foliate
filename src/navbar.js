@@ -103,12 +103,14 @@ GObject.registerClass({
             }
         })
     }
-    loadSectionFractions(fractions) {
-    async loadMarks(sections, annotations, annotationFractions) {
-        // add section and annotation marks
+    loadMarks(sectionFractions, annotationFractions) {
         this.clear_marks()
-        for (const fraction of fractions.slice(1, -1))
+        // section marks
+        for (const fraction of sectionFractions.slice(1, -1))
             this.add_mark(fraction, Gtk.PositionType.TOP, null)
+        // annotation marks
+        for (const annotation of annotationFractions)
+            this.add_mark(annotation[1], Gtk.PositionType.BOTTOM, null)
     }
     update(fraction) {
         if (this.#shouldUpdate) {
@@ -201,10 +203,8 @@ GObject.registerClass({
             widget.set_direction(value)
         utils.setDirection(this._section_buttons, value)
     }
-    loadMarks(sections, annotations, annotationFractions) {
-        this._progress_scale.loadMarks(sections, annotations, annotationFractions)
-    loadSectionFractions(fractions) {
-        this._progress_scale.loadSectionFractions(fractions)
+    loadMarks(sectionFractions, annotationFractions) {
+        this._progress_scale.loadMarks(sectionFractions, annotationFractions)
     }
     loadPageList(pageList, total) {
         if (!pageList?.length) {
