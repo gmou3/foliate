@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.johnfactotum.Foliate\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-12 16:50+0000\n"
+"POT-Creation-Date: 2023-11-14 06:50+0000\n"
 "PO-Revision-Date: 2020-07-06 13:16+0800\n"
 "Last-Translator: Blanc Chan\n"
 "Language-Team: none\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Bookmark deleted"
 msgstr "書籤已刪除"
 
-#: src/annotations.js:141 src/annotations.js:176 src/book-viewer.js:799
+#: src/annotations.js:141 src/annotations.js:176 src/book-viewer.js:800
 msgid "Undo"
 msgstr "復原"
 
@@ -80,7 +80,7 @@ msgstr "所有檔案"
 msgid "All Files"
 msgstr "所有檔案"
 
-#: src/annotations.js:609 src/annotations.js:637
+#: src/annotations.js:609 src/annotations.js:637 src/ui/book-viewer.ui:402
 msgid "No Annotations"
 msgstr "無註解"
 
@@ -93,7 +93,7 @@ msgstr ""
 msgid "Cannot Import Annotations"
 msgstr "匯入註解…"
 
-#: src/annotations.js:629 src/book-viewer.js:710
+#: src/annotations.js:629 src/book-viewer.js:711
 msgid "An error occurred"
 msgstr "發生錯誤"
 
@@ -120,7 +120,7 @@ msgstr "關閉"
 msgid "E-Book Files"
 msgstr "電子書檔案"
 
-#: src/app.js:362 data/com.github.johnfactotum.Foliate.desktop.in:5
+#: src/app.js:362 data/com.github.johnfactotum.Foliate.desktop.in:6
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:7
 msgid "Read e-books in style"
 msgstr "風格化的電子書閱讀"
@@ -261,70 +261,70 @@ msgstr ""
 msgid "Go to Bibliography"
 msgstr ""
 
-#: src/book-viewer.js:609
+#: src/book-viewer.js:610
 msgid "Remove bookmark"
 msgstr "移除書籤"
 
-#: src/book-viewer.js:610
+#: src/book-viewer.js:611
 msgid "Add bookmark"
 msgstr "新增書籤"
 
-#: src/book-viewer.js:708
+#: src/book-viewer.js:709
 msgid "File not found"
 msgstr "找不到檔案"
 
-#: src/book-viewer.js:709
+#: src/book-viewer.js:710
 msgid "File type not supported"
 msgstr "不支援的檔案類型"
 
-#: src/book-viewer.js:798
+#: src/book-viewer.js:799
 msgid "Annotation deleted"
 msgstr "註解已刪除"
 
-#: src/book-viewer.js:866
+#: src/book-viewer.js:867
 #, javascript-format
 msgid ""
 "‘%s’\n"
 "—%s, “%s”, p. %s"
 msgstr ""
 
-#: src/book-viewer.js:868
+#: src/book-viewer.js:869
 #, javascript-format
 msgid ""
 "‘%s’\n"
 "—“%s”, p. %s"
 msgstr ""
 
-#: src/book-viewer.js:869
+#: src/book-viewer.js:870
 #, javascript-format
 msgid "‘%s’ (p. %s)"
 msgstr ""
 
-#: src/book-viewer.js:872
+#: src/book-viewer.js:873
 #, javascript-format
 msgid ""
 "‘%s’\n"
 "—%s, “%s”"
 msgstr ""
 
-#: src/book-viewer.js:874
+#: src/book-viewer.js:875
 #, javascript-format
 msgid ""
 "‘%s’\n"
 "—“%s”"
 msgstr ""
 
-#: src/book-viewer.js:875
+#: src/book-viewer.js:876
 #, javascript-format
 msgid "‘%s’"
 msgstr ""
 
-#: src/book-viewer.js:893
+#: src/book-viewer.js:894
 #, javascript-format
 msgid "Image from “%s”"
 msgstr "來自《%s》的影像"
 
-#: src/book-viewer.js:893
+#: src/book-viewer.js:894
 msgid "Image"
 msgstr "影像"
 
@@ -349,8 +349,8 @@ msgstr "_取消"
 msgid "_Remove"
 msgstr "_移除"
 
-#: src/main.js:26 data/com.github.johnfactotum.Foliate.desktop.in:3
-#: data/com.github.johnfactotum.Foliate.metainfo.xml.in:6
+#. Translators: Do NOT translate! The is the application name!
+#: src/main.js:26 data/com.github.johnfactotum.Foliate.desktop.in:4
 msgid "Foliate"
 msgstr "Foliate"
 
@@ -590,6 +590,11 @@ msgstr "內容"
 msgid "Annotations"
 msgstr "註解"
 
+#: src/ui/book-viewer.ui:403
+#, fuzzy
+msgid "Select some text to add annotations"
+msgstr "無註解"
+
 #: src/ui/book-viewer.ui:433
 msgid "Filter annotations…"
 msgstr "篩選註解…"
@@ -597,6 +602,15 @@ msgstr "篩選註解…"
 #: src/ui/book-viewer.ui:447
 msgid "Bookmarks"
 msgstr "書籤"
+
+#: src/ui/book-viewer.ui:458
+#, fuzzy
+msgid "No Bookmarks"
+msgstr "書籤"
+
+#: src/ui/book-viewer.ui:459
+msgid "Add some bookmarks to see them here"
+msgstr ""
 
 #: src/ui/book-viewer.ui:498 src/ui/library-view.ui:42
 msgid "No Results Found"
@@ -619,27 +633,27 @@ msgstr "檢視選單"
 msgid "Zoom Out"
 msgstr "縮小"
 
-#: src/ui/book-viewer.ui:577 src/ui/image-viewer.ui:48
+#: src/ui/book-viewer.ui:576 src/ui/image-viewer.ui:48
 msgid "Reset Zoom"
 msgstr "重設縮放"
 
-#: src/ui/book-viewer.ui:586 src/ui/image-viewer.ui:55
+#: src/ui/book-viewer.ui:585 src/ui/image-viewer.ui:55
 msgid "Zoom In"
 msgstr "放大"
 
-#: src/ui/book-viewer.ui:602
+#: src/ui/book-viewer.ui:601
 msgid "Follow System Style"
 msgstr "依照系統樣式"
 
-#: src/ui/book-viewer.ui:612
+#: src/ui/book-viewer.ui:611
 msgid "Light Style"
 msgstr "亮色"
 
-#: src/ui/book-viewer.ui:622
+#: src/ui/book-viewer.ui:621
 msgid "Dark Style"
 msgstr "暗色"
 
-#: src/ui/book-viewer.ui:637 src/ui/library.ui:24
+#: src/ui/book-viewer.ui:636 src/ui/library.ui:24
 msgid "Fullscreen"
 msgstr "全螢幕"
 
@@ -959,18 +973,21 @@ msgstr "最大區塊大小"
 msgid "Maximum height (horizontal writing) or width (vertical writing)"
 msgstr "最大高度（橫寫）或寬度（直寫）"
 
-#: data/com.github.johnfactotum.Foliate.desktop.in:4
+#: data/com.github.johnfactotum.Foliate.desktop.in:5
 #, fuzzy
 msgid "E-Book Viewer"
 msgstr "電子書閱讀器"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/com.github.johnfactotum.Foliate.desktop.in:13
+#: data/com.github.johnfactotum.Foliate.desktop.in:14
 msgid "Ebook;Book;EPUB;Viewer;Reader;"
 msgstr "Ebook;Book;EPUB;Viewer;Reader;電子書;書;EPUB;檢視器;閱讀器;"
 
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:10
-msgid "Foliate is modern e-book reader app designed for GNOME."
+msgid ""
+"Discover a new chapter in reading with Foliate, the modern e-book reader "
+"tailored for GNOME. Immerse yourself in a distraction-free interface, with "
+"customization features designed to match your unique preferences."
 msgstr ""
 
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:11
@@ -1011,16 +1028,37 @@ msgstr "搜尋書籍內容…"
 msgid "Quick dictionary lookup"
 msgstr ""
 
-#: data/com.github.johnfactotum.Foliate.metainfo.xml.in:23
-msgid "John Factotum"
-msgstr "John Factotum"
+#: data/com.github.johnfactotum.Foliate.metainfo.xml.in:30
+#, fuzzy
+msgid "Book"
+msgstr "書籍選單"
 
-#: data/com.github.johnfactotum.Foliate.metainfo.xml.in:49
+#: data/com.github.johnfactotum.Foliate.metainfo.xml.in:31
+msgid "EPUB"
+msgstr ""
+
+#: data/com.github.johnfactotum.Foliate.metainfo.xml.in:32
+msgid "Ebook"
+msgstr ""
+
+#: data/com.github.johnfactotum.Foliate.metainfo.xml.in:33
+msgid "Reader"
+msgstr ""
+
+#: data/com.github.johnfactotum.Foliate.metainfo.xml.in:34
+#, fuzzy
+msgid "Viewer"
+msgstr "檢視選單"
+
+#: data/com.github.johnfactotum.Foliate.metainfo.xml.in:62
 msgid ""
 "Foliate has been rewritten from scratch with a new e-book rendering library "
 "and the latest platform libraries, GTK 4 and Libadwaita, with refreshed UI "
 "and improved performance."
 msgstr ""
+
+#~ msgid "John Factotum"
+#~ msgstr "John Factotum"
 
 #, fuzzy
 #~ msgid "Reference"
@@ -1061,10 +1099,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Choose highlight style"
 #~ msgstr "更改標示顏色"
-
-#, fuzzy
-#~ msgid "Delete annotation"
-#~ msgstr "無註解"
 
 #~ msgid "More"
 #~ msgstr "更多"
