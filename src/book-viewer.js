@@ -58,6 +58,7 @@ const ViewSettings = utils.makeDataClass('FoliateViewSettings', {
     'max-block-size': 'uint',
     'max-column-count': 'uint',
     'scrolled': 'boolean',
+    'animated': 'boolean',
     'invert': 'boolean',
     'theme': 'string',
     'autohide-cursor': 'boolean',
@@ -84,7 +85,7 @@ const ViewPreferencesWindow = GObject.registerClass({
     InternalChildren: [
         'default-font', 'serif-font', 'sans-serif-font', 'monospace-font',
         'default-font-size', 'minimum-font-size',
-        'line-height', 'justify', 'hyphenate', 'gap',
+        'line-height', 'justify', 'hyphenate', 'reduce-animation', 'gap',
         'max-inline-size', 'max-block-size', 'max-column-count',
         'theme-flow-box',
     ],
@@ -107,6 +108,7 @@ const ViewPreferencesWindow = GObject.registerClass({
             'max-inline-size': [this._max_inline_size, 'value'],
             'max-block-size': [this._max_block_size, 'value'],
             'max-column-count': [this._max_column_count, 'value'],
+            'animated': [this._reduce_animation, 'active', true],
         })
 
         const actionGroup = utils.addPropertyActions(this.viewSettings, ['theme'])
@@ -199,6 +201,7 @@ GObject.registerClass({
         'max-block-size': 1440,
         'max-column-count': 2,
         'scrolled': false,
+        'animated': true,
     })
     constructor(params) {
         super(params)
@@ -306,6 +309,7 @@ GObject.registerClass({
                 maxBlockSize: view.max_block_size,
                 maxColumnCount: view.max_column_count,
                 flow: view.scrolled ? 'scrolled' : 'paginated',
+                animated: view.animated,
             },
             style: {
                 lineHeight: view.line_height,
