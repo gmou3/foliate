@@ -16,18 +16,28 @@ import WebKit from 'gi://WebKit'
 import { WebView } from './webview.js'
 
 const uiText = {
+    loading: _('Loading'),
+    error: _('Failed to Load'),
+    reload: _('Reload'),
     cancel: _('Cancel'),
     viewCollection: _('See All'),
     search: _('Search'),
     acq: {
         'http://opds-spec.org/acquisition': _('Download'),
         'http://opds-spec.org/acquisition/buy': _('Buy'),
-        'http://opds-spec.org/acquisition/open-access': _('Free'),
+        'http://opds-spec.org/acquisition/open-access': _('Download'),
         'http://opds-spec.org/acquisition/preview': _('Preview'),
         'http://opds-spec.org/acquisition/sample': _('Sample'),
         'http://opds-spec.org/acquisition/borrow': _('Borrow'),
         'http://opds-spec.org/acquisition/subscribe': _('Subscribe'),
     },
+    openAccess: _('Free'),
+    pagination: [
+        _('First'),
+        _('Previous'),
+        _('Next'),
+        _('Last'),
+    ],
     openSearchParams: {
         searchTerms: _('Search Terms'),
         language: _('Language'),
@@ -443,7 +453,7 @@ GObject.registerClass({
         const initFuncs = [
             webView.provide('formatMime', format.mime),
             webView.provide('formatPrice',
-                ({ currency, value }) => format.price(currency, value)),
+                price => price ? format.price(price.currency, price.value) : ''),
             webView.provide('formatLanguage', format.language),
             webView.provide('formatDate', format.date),
             webView.provide('formatList', format.list),
@@ -455,7 +465,8 @@ GObject.registerClass({
                 if (event === WebKit.LoadEvent.FINISHED) {
                     const lang = format.locales[0].baseName
                     webView.run(`globalThis.uiText = ${JSON.stringify(uiText)}
-                    document.documentElement.lang = "${lang}"`)
+                    document.documentElement.lang = "${lang}"
+                    import('./opds.js').catch(e => console.error(e))`)
                         .catch(e => console.error(e))
                     for (const f of initFuncs) f()
 

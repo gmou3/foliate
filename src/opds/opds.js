@@ -38,6 +38,7 @@ const SYMBOL = {
     ACTIVE_FACET: Symbol('activeFacet'),
     SUMMARY: Symbol('summary'),
     CONTENT: 'http://invalid.invalid/#' + Math.random(),
+    PAGINATION: Symbol('pagination'),
 }
 
 const groupByArray = (arr, f) => {
@@ -133,7 +134,7 @@ customElements.define('opds-nav', class extends HTMLElement {
 })
 
 customElements.define('opds-pub', class extends HTMLElement {
-    static observedAttributes = ['heading', 'image', 'href']
+    static observedAttributes = ['heading', 'author', 'price', 'image', 'href']
     #root = this.attachShadow({ mode: 'closed' })
     constructor() {
         super()
@@ -145,6 +146,12 @@ customElements.define('opds-pub', class extends HTMLElement {
         switch (name) {
             case 'heading':
                 this.#root.querySelector('h1 a').textContent = val
+                break
+            case 'author':
+                this.#root.querySelector('#author').textContent = val
+                break
+            case 'price':
+                this.#root.querySelector('#price').textContent = val
                 break
             case 'image':
                 this.#root.querySelector('img').src = val
@@ -184,11 +191,6 @@ customElements.define('opds-pub-full', class extends HTMLElement {
             updateHeight()
             new ResizeObserver(updateHeight).observe(doc.documentElement)
         }
-
-        const button = this.#root.querySelector('#downloading button')
-        button.title = globalThis.uiText.cancel
-        button.addEventListener('click', () =>
-            this.dispatchEvent(new Event('cancel-download')))
     }
     attributeChangedCallback(name, _, val) {
         switch (name) {
@@ -247,7 +249,7 @@ const getLink = link => ({
     [SYMBOL.ACTIVE_FACET]: link.getAttributeNS(NS.OPDS, 'activeFacet') === 'true',
 })
 
-const getPublication = (entry, filter) => {
+const getPublication = (entry, filter = filterNS(useNS(entry.ownerDocument, NS.ATOM))) => {
     const children = Array.from(entry.children)
     const filterDCEL = filterNS(NS.DC)
     const filterDCTERMS = filterNS(NS.DCTERMS)
@@ -323,15 +325,21 @@ const getFeed = doc => {
             subtitle: children.find(filter('subtitle'))?.textContent,
         },
         links,
-        groups: Array.from(groupedItems, ([key, val]) => {
+        groups: Array.from(groupedItems, ([key, items]) => {
+            const itemsKey = items[0]?.metadata ? 'publications' : 'navigation'
+            if (key == null) return {
+                [itemsKey]: items,
+                [SYMBOL.PAGINATION]: ['first', 'previous', 'next', 'last']
+                    .map(rel => linksByRel.get(rel)),
+            }
             const link = groupLinkMap.get(key)
             return {
-                metadata: link ? {
+                metadata: {
                     title: link.title,
                     numberOfItems: link.properties.numberOfItems,
-                } : null,
-                links: link ? [{ rel: 'self', href: link.href, type: link.type }] : [],
-                [val[0]?.metadata ? 'publications' : 'navigation']: val,
+                },
+                links: [{ rel: 'self', href: link.href, type: link.type }],
+                [itemsKey]: items,
             }
         }),
         facets: Array.from(
@@ -354,7 +362,7 @@ const renderLinkedObject = (object, baseURL) => {
             a.href = '?url=' + encodeURIComponent(resolveURL(link.href, baseURL))
             return a
         }
-        a.href = resolveURL(object.links[0].href, baseURL)
+        if (object.links[0]) a.href = resolveURL(object.links[0].href, baseURL)
     }
     return a
 }
@@ -363,35 +371,45 @@ const renderContributor = async (contributor, baseURL) => {
     if (!contributor) return
     const as = await Promise.all([contributor ?? []].flat().map(async contributor => {
         const a = renderLinkedObject(contributor, baseURL)
-        a.innerText = typeof contributor === 'string' ? contributor
+        a.textContent = typeof contributor === 'string' ? contributor
             : await renderLanguageMap(contributor.name)
         return a
     }))
     return as.length <= 1 ? as : await formatElementList(as)
 }
 
+const renderContributorText = async contributor => {
+    const arr = await Promise.all([contributor ?? []].flat().map(async contributor =>
+        typeof contributor === 'string' ? contributor
+        : await renderLanguageMap(contributor.name)))
+    return globalThis.formatList(arr)
+}
+
 const renderAcquisitionButton = async (rel, links, callback) => {
     const label = globalThis.uiText.acq[rel] ?? globalThis.uiText.acq[REL.ACQ]
-    const priceData = links[0].properties?.price
-    const price = priceData ? await globalThis.formatPrice(priceData) : null
+    const price = await globalThis.formatPrice(links[0].properties?.price)
 
     const button = document.createElement('button')
-    button.innerText = price ? `${label} · ${price}` : label
+    button.classList.add('raised', 'pill')
+    button.textContent = price ? `${label} · ${price}` : label
     button.onclick = () => callback(links[0].href)
+    button.dataset.rel = rel
     if (links.length === 1) return button
     else {
         const menuButton = document.createElement('foliate-menubutton')
+        const menuButtonButton = document.createElement('button')
+        menuButtonButton.classList.add('raised', 'pill')
+        menuButton.append(menuButtonButton)
         const icon = document.createElement('foliate-symbolic')
         icon.setAttribute('src', '/icons/hicolor/scalable/actions/pan-down-symbolic.svg')
-        menuButton.append(icon)
+        menuButtonButton.append(icon)
         const menu = document.createElement('foliate-menu')
         menu.slot = 'menu'
         menuButton.append(menu)
 
         for (const link of links) {
             const type = parseMediaType(link.type)?.mediaType
-            const priceData = links[0].properties?.price
-            const price = priceData ? await globalThis.formatPrice(priceData) : null
+            const price = await globalThis.formatPrice(links[0].properties?.price)
 
             const menuitem = document.createElement('button')
             menuitem.role = 'menuitem'
@@ -404,6 +422,7 @@ const renderAcquisitionButton = async (rel, links, callback) => {
         const div = document.createElement('div')
         div.classList.add('split-button')
         div.replaceChildren(button, menuButton)
+        div.dataset.rel = rel
         return div
     }
 }
@@ -440,17 +459,44 @@ const renderFacets = (facets, baseURL) => facets.map(({ metadata, links }) => {
     return section
 })
 
-const renderGroups = async (groups, baseURL) => (await Promise.all(groups.map(async ({ metadata, links, publications, navigation }) => {
+const renderGroups = async (groups, baseURL) => (await Promise.all(groups.map(async group => {
+    const { metadata, links, publications, navigation } = group
+
+    const paginationItems = group[SYMBOL.PAGINATION]?.map((links, i) => {
+        links ??= []
+        const a = renderLinkedObject({ links }, baseURL)
+        a.textContent = globalThis.uiText.pagination[i]
+        return a
+    })
+    const pagination = paginationItems?.filter(a => a.href)?.length
+        ? document.createElement('nav') : null
+    if (pagination) pagination.append(...paginationItems)
+
     const container = document.createElement('div')
     container.classList.add('container')
     container.replaceChildren(...await Promise.all((publications ?? navigation).map(async item => {
         const isPub = 'metadata' in item
         const el = document.createElement(isPub ? 'opds-pub' : 'opds-nav')
         if (isPub) {
+            const linksByRel = groupByArray(item.links, link => link.rel)
             el.setAttribute('heading', await renderLanguageMap(item.metadata.title))
+            el.setAttribute('author', await renderContributorText(item.metadata.author))
+            el.setAttribute('price', (await globalThis.formatPrice(
+                item.links?.find(link => link.properties?.price)?.properties?.price))
+                || (linksByRel.has(REL.ACQ + '/open-access')
+                    ? globalThis.uiText.openAccess : ''))
             const src = resolveURL(item.images?.[0]?.href, baseURL)
             if (src) el.setAttribute('image', src)
-            el.setAttribute('href', '#' + encodeURIComponent(JSON.stringify(item)))
+            const alternate = linksByRel.get('alternate')?.find(link => {
+                const parsed = parseMediaType(link.type)
+                if (!parsed) return
+                return parsed.mediaType === MIME.ATOM
+                    && parsed.parameters.profile === 'opds-catalog'
+                    && parsed.parameters.type === 'entry'
+            })
+            el.setAttribute('href', alternate?.href
+                ? '?url=' + encodeURIComponent(resolveURL(alternate.href, baseURL))
+                : '#' + encodeURIComponent(JSON.stringify(item)))
         } else {
             el.setAttribute('heading', item.title ?? '')
             el.setAttribute('description', item[SYMBOL.SUMMARY] ?? '')
@@ -460,7 +506,7 @@ const renderGroups = async (groups, baseURL) => (await Promise.all(groups.map(as
         }
         return el
     })))
-    if (!metadata) return container
+    if (!metadata) return pagination ? [container, pagination] : container
 
     const div = document.createElement('div')
     const h = document.createElement('h2')
@@ -507,13 +553,21 @@ const renderPublication = async (pub, baseURL) => {
     const item = document.createElement('opds-pub-full')
     const token = new Date() + Math.random()
     entryMap.set(token, new WeakRef(item))
-    item.addEventListener('cancel-download', () => emit({ type: 'cancel', token }))
     const download = href => {
         href = resolveURL(href, baseURL)
         item.setAttribute('downloading', '')
         item.removeAttribute('progress')
         emit({ type: 'download', href, token })
     }
+
+    const cancelButton = document.createElement('button')
+    cancelButton.slot = 'cancel'
+    cancelButton.title = globalThis.uiText.cancel
+    item.append(cancelButton)
+    const icon = document.createElement('foliate-symbolic')
+    icon.setAttribute('src', '/icons/hicolor/scalable/actions/stop-sign-symbolic.svg')
+    cancelButton.append(icon)
+    cancelButton.addEventListener('click', () => emit({ type: 'cancel', token }))
 
     const src = resolveURL(pub.images?.[0]?.href, baseURL)
     if (src) item.setAttribute('image', src)
@@ -578,6 +632,12 @@ const renderPublication = async (pub, baseURL) => {
     return item
 }
 
+const renderEntry = (pub, baseURL) => {
+    document.querySelector('#stack').showChild(document.querySelector('#entry'))
+    return renderPublication(pub, baseURL)
+        .then(el => document.querySelector('#entry').append(el))
+}
+
 const renderFeed = async (feed, baseURL) => {
     const linksByRel = groupByArray(feed.links, link => link.rel)
     const searchLink = linksByRel.get('search')
@@ -596,17 +656,13 @@ const renderFeed = async (feed, baseURL) => {
     addEventListener('hashchange', () => {
         const hash = location.hash.slice(1)
         if (!hash) {
-            document.body.dataset.state = 'feed'
+            document.querySelector('#stack').showChild(document.querySelector('#feed'))
             document.querySelector('#entry').replaceChildren()
-        } else {
-            document.body.dataset.state = 'entry'
-            const pub = JSON.parse(decodeURIComponent(hash))
-            renderPublication(pub, baseURL)
-                .then(el => document.querySelector('#entry').append(el))
-                .catch(e => console.error(e))
         }
+        else renderEntry(JSON.parse(decodeURIComponent(hash)), baseURL)
+            .catch(e => console.error(e))
     })
-    document.body.dataset.state = 'feed'
+    document.querySelector('#stack').showChild(document.querySelector('#feed'))
 }
 
 const renderOpenSearch = (doc, baseURL) => {
@@ -654,7 +710,6 @@ const renderOpenSearch = (doc, baseURL) => {
         children.find(filter('Description'))?.textContent ?? ''
     document.querySelector('#search button').textContent = globalThis.uiText.search
 
-    document.body.dataset.state = 'search'
     const container = document.querySelector('#search-params')
     for (const [, prefix, param, optional] of template.matchAll(regex)) {
         const namespace = prefix ? $url.lookupNamespaceURI(prefix) : null
@@ -678,36 +733,47 @@ const renderOpenSearch = (doc, baseURL) => {
         p.append(label)
         container.append(p)
     }
+    document.querySelector('#stack').showChild(document.querySelector('#search'))
     container.querySelector('input').focus()
 }
 
 globalThis.updateSearchURL = () =>
     emit({ type: 'search', url: document.body.dataset.searchUrl })
 
+document.querySelector('#loading h1').textContent = globalThis.uiText.loading
+document.querySelector('#error h1').textContent = globalThis.uiText.error
+document.querySelector('#error button').textContent = globalThis.uiText.reload
+document.querySelector('#error button').onclick = () => location.reload()
+
 try {
     const params = new URLSearchParams(location.search)
     const url = params.get('url')
     const res = await fetch(url)
-    if (!res.ok) throw new Error()
+    if (!res.ok) throw new Error(`${res.status} ${res.statusText}`)
     const text = await res.text()
     if (text.startsWith('<')) {
         const doc = new DOMParser().parseFromString(text, MIME.XML)
         const { documentElement: { localName } } = doc
         if (localName === 'feed') await renderFeed(getFeed(doc), url)
-        else if (localName === 'entry') throw new Error('todo')
+        else if (localName === 'entry') await renderEntry(getPublication(doc.documentElement), url)
         else if (localName === 'OpenSearchDescription') renderOpenSearch(doc, url)
         else throw new Error(`root element is <${localName}>; expected <feed> or <entry>`)
     }
     else {
         const feed = JSON.parse(text)
         const { navigation, publications } = feed
+        const linksByRel = groupByArray(feed.links, link => link.rel)
+        const pagination = ['first', 'previous', 'next', 'last']
+            .map(rel => linksByRel.get(rel))
         feed.groups = [
-            navigation ? { navigation } : null,
-            publications ? { publications } : null,
+            navigation ? { navigation, [SYMBOL.PAGINATION]: !publications ? pagination : null } : null,
+            publications ? { publications, [SYMBOL.PAGINATION]: pagination } : null,
             ...(feed.groups ?? []),
         ].filter(x => x)
         await renderFeed(feed, url)
     }
 } catch (e) {
     console.error(e)
+    document.querySelector('#error p').innerText = e.message + '\n' + e.stack
+    document.querySelector('#stack').showChild(document.querySelector('#error'))
 }
