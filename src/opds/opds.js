@@ -236,6 +236,12 @@ const getPrice = link => {
     } : null
 }
 
+const getIndirectAcquisition = el => {
+    const ia = el.getElementsByTagNameNS(NS.OPDS, 'indirectAcquisition')[0]
+    if (!ia) return []
+    return [{ type: ia.getAttribute('type') }, ...getIndirectAcquisition(ia)]
+}
+
 const getLink = link => ({
     rel: link.getAttribute('rel')?.split(/ +/),
     href: link.getAttribute('href'),
@@ -243,6 +249,7 @@ const getLink = link => ({
     title: link.getAttribute('title'),
     properties: {
         price: getPrice(link),
+        indirectAcquisition: getIndirectAcquisition(link),
         numberOfItems: link.getAttributeNS(NS.THR, 'count'),
     },
     [SYMBOL.FACET_GROUP]: link.getAttributeNS(NS.OPDS, 'facetGroup'),
@@ -392,7 +399,7 @@ const renderAcquisitionButton = async (rel, links, callback) => {
     const button = document.createElement('button')
     button.classList.add('raised', 'pill')
     button.textContent = price ? `${label} · ${price}` : label
-    button.onclick = () => callback(links[0].href)
+    button.onclick = () => callback(links[0].href, links[0].type)
     button.dataset.rel = rel
     if (links.length === 1) return button
     else {
@@ -408,14 +415,15 @@ const renderAcquisitionButton = async (rel, links, callback) => {
         menuButton.append(menu)
 
         for (const link of links) {
-            const type = parseMediaType(link.type)?.mediaType
+            const type = parseMediaType(link.properties?.indirectAcquisition?.at(-1)?.type
+                ?? link.type)?.mediaType
             const price = await globalThis.formatPrice(links[0].properties?.price)
 
             const menuitem = document.createElement('button')
             menuitem.role = 'menuitem'
             menuitem.textContent = (link.title || await globalThis.formatMime(type))
                 + (price ? ' · ' + price : '')
-            menuitem.onclick = () => callback(link.href)
+            menuitem.onclick = () => callback(link.href, link.type)
             menu.append(menuitem)
         }
 
@@ -548,13 +556,16 @@ const renderContent = (value, type, baseURL) => {
         { type: type === 'xhtml' ? MIME.XHTML : MIME.HTML })
 }
 
-// TODO: handle localized strings etc. in webpub
 const renderPublication = async (pub, baseURL) => {
     const item = document.createElement('opds-pub-full')
     const token = new Date() + Math.random()
     entryMap.set(token, new WeakRef(item))
-    const download = href => {
+    const download = (href, type) => {
         href = resolveURL(href, baseURL)
+        if (parseMediaType(type)?.mediaType === MIME.HTML) {
+            location = href
+            return
+        }
         item.setAttribute('downloading', '')
         item.removeAttribute('progress')
         emit({ type: 'download', href, token })
@@ -655,7 +666,7 @@ const renderFeed = async (feed, baseURL) => {
 
     addEventListener('hashchange', () => {
         const hash = location.hash.slice(1)
-        if (!hash) {
+        if (!hash || hash === 'nav') {
             document.querySelector('#stack').showChild(document.querySelector('#feed'))
             document.querySelector('#entry').replaceChildren()
         }
@@ -744,6 +755,7 @@ document.querySelector('#loading h1').textContent = globalThis.uiText.loading
 document.querySelector('#error h1').textContent = globalThis.uiText.error
 document.querySelector('#error button').textContent = globalThis.uiText.reload
 document.querySelector('#error button').onclick = () => location.reload()
+document.querySelector('#feed a[href="#nav"]').title = globalThis.uiText.filter
 
 try {
     const params = new URLSearchParams(location.search)

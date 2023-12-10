@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="color-scheme" content="light dark">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'unsafe-inline'; img-src *; connect-src *; frame-src 'self';">
 <style>
 :not(:defined) > * {
     display: none;
@@ -188,17 +189,60 @@ opds-nav:hover {
     font: inherit;
 }
 
-@media (min-width: 800px) {
+#nav:not(:empty) {
+    position: fixed;
+    inset: 0;
+    box-sizing: border-box;
+}
+#feed a[href="#nav"] {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    inset-block-end: 0;
+    inset-inline-end: 0;
+    margin: 18px;
+    background: highlight;
+    color: highlightText;
+    border-radius: 100%;
+    height: min-content;
+    width: min-content;
+    padding: 9px;
+}
+@media (max-width: 800px) {
+    #nav {
+        display: none;
+    }
+    #nav:not(:empty):target {
+        display: block;
+    }
+    #feed[data-scrolled-to-top] {
+        box-shadow: none;
+    }
+    #nav:not(:empty) {
+        padding: 18px;
+        background: canvas;
+        color: canvasText;
+        box-shadow: inset 0 1px rgba(0, 0, 0, .1);
+    }
+    #feed:has(#nav:not(:empty)):not(:has(#nav:target)) {
+        padding-block-end: calc(16px + 18px + 9px * 2);
+    }
+    #feed:has(#nav:not(:empty)):not(:has(#nav:target)) a[href="#nav"] {
+        display: flex;
+    }
+}
+@media (width > 800px) {
     #feed:has(#nav:not(:empty)) {
         margin-inline-end: 200px;
     }
     #nav:not(:empty) {
-        width: 200px;
-        position: fixed;
-        inset: 0;
-        inset-inline-start: auto;
-        box-sizing: border-box;
+        display: block;
         padding: 12px 9px;
+        width: 200px;
+        inset-inline-start: auto;
+    }
+    #feed[data-scrolled-to-top] #nav:not([data-scrolled-to-top]) {
+        -webkit-mask-image: linear-gradient(transparent, #000 4em, #000);
     }
     #feed:has(#nav:not(:empty)) .carousel:has(opds-pub) {
         -webkit-mask-image: linear-gradient(to left, transparent, #000 24px, #000);
@@ -240,9 +284,6 @@ opds-nav:hover {
 }
 #nav [aria-current] {
     background: var(--shade);
-}
-#feed[data-scrolled-to-top] #nav:not([data-scrolled-to-top]) {
-    -webkit-mask-image: linear-gradient(transparent, #000 4em, #000);
 }
 opds-pub-full {
     display: block;
@@ -555,7 +596,7 @@ button[role="menuitem"] {
             <slot name="actions"></slot>
         </div>
     </div>
-    <iframe sandbox="allow-same-origin"></iframe>
+    <iframe sandbox></iframe>
     <slot name="details"></slot>
 </template>
 <foliate-stack id="stack">
@@ -581,6 +622,7 @@ button[role="menuitem"] {
                 <h1></h1>
                 <p></p>
             </hgroup>
+            <a href="#nav"><foliate-symbolic src="/icons/hicolor/scalable/actions/funnel-symbolic.svg"></foliate-symbolic></a>
             <main></main>
             <foliate-scrolled id="nav" role="navigation"></foliate-scrolled>
         </article>
