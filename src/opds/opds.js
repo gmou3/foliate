@@ -91,9 +91,8 @@ const isOPDSCatalog = str => {
     const parsed = parseMediaType(str)
     if (!parsed) return false
     const { mediaType, parameters } = parsed
-    if (mediaType !== MIME.ATOM && mediaType !== MIME.OPDS2) return false
-    if (!parameters.profile) return true
-    return parameters.profile.toLowerCase() === 'opds-catalog'
+    if (mediaType === MIME.OPDS2) return true
+    return mediaType === MIME.ATOM && parameters.profile?.toLowerCase() === 'opds-catalog'
 }
 
 // ignore the namespace if it doesn't appear in document at all
@@ -166,7 +165,7 @@ customElements.define('opds-pub', class extends HTMLElement {
 })
 
 customElements.define('opds-pub-full', class extends HTMLElement {
-    static observedAttributes = ['heading', 'image', 'description', 'progress']
+    static observedAttributes = ['description', 'progress']
     #root = this.attachShadow({ mode: 'closed' })
     constructor() {
         super()
@@ -197,12 +196,6 @@ customElements.define('opds-pub-full', class extends HTMLElement {
     }
     attributeChangedCallback(name, _, val) {
         switch (name) {
-            case 'heading':
-                this.#root.querySelector('h1').textContent = val
-                break
-            case 'image':
-                this.#root.querySelector('img').src = val
-                break
             case 'description':
                 this.#root.querySelector('iframe').src = val
                 break
@@ -379,14 +372,20 @@ const renderLinkedObject = (object, baseURL) => {
 }
 
 const renderContributor = async (contributor, baseURL) => {
-    if (!contributor) return
+    if (!contributor) return []
     const as = await Promise.all([contributor ?? []].flat().map(async contributor => {
         const a = renderLinkedObject(contributor, baseURL)
         a.textContent = typeof contributor === 'string' ? contributor
             : await renderLanguageMap(contributor.name)
+        if (contributor.position != null) {
+            const span = document.createElement('span')
+            span.textContent = contributor.position
+            // TODO: localize this
+            return [a, document.createTextNode('\u00a0'), span]
+        }
         return a
     }))
-    return as.length <= 1 ? as : await formatElementList(as)
+    return (as.length <= 1 ? as : await formatElementList(as)).flat()
 }
 
 const renderContributorText = async contributor => {
@@ -497,7 +496,7 @@ const renderImages = (images, isThumbnail, baseURL) => {
     return img
 }
 
-const renderGroups = async (groups, baseURL) => (await Promise.all(groups.map(async group => {
+const renderGroups = async (groups, baseURL) => (await Promise.all(groups.map(async (group, groupIndex) => {
     const { metadata, links, publications, navigation } = group
 
     const paginationItems = group[SYMBOL.PAGINATION]?.map((links, i) => {
@@ -512,7 +511,7 @@ const renderGroups = async (groups, baseURL) => (await Promise.all(groups.map(as
 
     const container = document.createElement('div')
     container.classList.add('container')
-    container.replaceChildren(...await Promise.all((publications ?? navigation).map(async item => {
+    container.replaceChildren(...await Promise.all((publications ?? navigation).map(async (item, itemIndex) => {
         const isPub = 'metadata' in item
         const el = document.createElement(isPub ? 'opds-pub' : 'opds-nav')
         if (isPub) {
@@ -535,7 +534,7 @@ const renderGroups = async (groups, baseURL) => (await Promise.all(groups.map(as
             })
             el.setAttribute('href', alternate?.href
                 ? '?url=' + encodeURIComponent(resolveURL(alternate.href, baseURL))
-                : '#' + encodeURIComponent(JSON.stringify(item)))
+                : '#' + groupIndex + ',' + itemIndex)
         } else {
             el.setAttribute('heading', item.title ?? '')
             el.setAttribute('description', item[SYMBOL.SUMMARY] ?? '')
@@ -618,16 +617,27 @@ const renderPublication = async (pub, baseURL) => {
     img.slot = 'image'
     item.append(img)
 
-    item.setAttribute('heading', await renderLanguageMap(pub.metadata.title))
+    const metadata = pub.metadata ?? {}
 
-    const authors = document.createElement('div')
+    const hgroup = document.createElement('hgroup')
+    hgroup.slot = 'heading'
+    item.append(hgroup)
+    const series = document.createElement('p')
+    series.append(...await renderContributor(metadata.belongsTo?.series, baseURL))
+    const h1 = document.createElement('h1')
+    h1.textContent = await renderLanguageMap(metadata.title)
+    const subtitle = document.createElement('p')
+    subtitle.textContent = await renderLanguageMap(metadata.subtitle)
+    hgroup.append(series, h1, subtitle)
+
+    const authors = document.createElement('p')
     authors.slot = 'authors'
     item.append(authors)
-    authors.append(...await renderContributor(pub.metadata.author, baseURL))
+    authors.append(...await renderContributor(metadata.author, baseURL))
 
-    const blob = pub.metadata[SYMBOL.CONTENT]
-        ? renderContent(pub.metadata[SYMBOL.CONTENT].value, pub.metadata[SYMBOL.CONTENT].type, baseURL)
-        : pub.metadata.description ? renderContent(pub.metadata.description, 'html', baseURL) : null
+    const blob = metadata[SYMBOL.CONTENT]
+        ? renderContent(metadata[SYMBOL.CONTENT].value, metadata[SYMBOL.CONTENT].type, baseURL)
+        : metadata.description ? renderContent(metadata.description, 'html', baseURL) : null
     if (blob) item.setAttribute('description', URL.createObjectURL(blob))
 
     const actions = document.createElement('div')
@@ -641,15 +651,15 @@ const renderPublication = async (pub, baseURL) => {
     const table = document.createElement('table')
     details.append(table)
 
-    for (const [k, v = pub.metadata[k]] of [
-        ['publisher', await renderContributor(pub.metadata.publisher, baseURL)],
-        ['published', await globalThis.formatDate(pub.metadata.published)],
+    for (const [k, v = metadata[k]] of [
+        ['publisher', await renderContributor(metadata.publisher, baseURL)],
+        ['published', await globalThis.formatDate(metadata.published)],
         ['language', await globalThis.formatList(
-            await Promise.all([pub.metadata.language ?? []].flat()
+            await Promise.all([metadata.language ?? []].flat()
                 .map(x => globalThis.formatLanguage(x))))],
         ['identifier'],
     ]) {
-        if (!v) continue
+        if (!v?.length) continue
         const tr = document.createElement('tr')
         const th = document.createElement('th')
         const td = document.createElement('td')
@@ -664,7 +674,7 @@ const renderPublication = async (pub, baseURL) => {
     const tags = document.createElement('div')
     tags.role = 'list'
     details.append(tags)
-    tags.append(...[pub.metadata.subject ?? []].flat().map(subject => {
+    tags.append(...[metadata.subject ?? []].flat().map(subject => {
         const li = document.createElement('div')
         li.role = 'listitem'
         const icon = document.createElement('foliate-symbolic')
@@ -686,12 +696,16 @@ const renderEntry = (pub, baseURL) => {
 
 const renderFeed = async (feed, baseURL) => {
     const linksByRel = groupByArray(feed.links, link => link.rel)
+    const templatedSearch = linksByRel.get('search')
+        ?.find(link => isOPDSCatalog(link.type) && link.templated)
     globalThis.state = {
         title: feed.metadata?.title,
         self: resolveURL(linksByRel.get('self')?.[0]?.href, baseURL) || baseURL,
         start: resolveURL(linksByRel.get('start')?.[0]?.href, baseURL),
-        search: resolveURL(linksByRel.get('search')
+        search: templatedSearch ? '#search'
+        : resolveURL(linksByRel.get('search')
             ?.find(link => parseMediaType(link.type).mediaType === MIME.OPENSEARCH)?.href, baseURL),
+        searchEnabled: true,
     }
     globalThis.updateState()
 
@@ -702,19 +716,46 @@ const renderFeed = async (feed, baseURL) => {
     if (feed.facets)
         document.querySelector('#nav').append(...renderFacets(feed.facets, baseURL))
 
-    addEventListener('hashchange', () => {
+    const update = () => {
         const hash = location.hash.slice(1)
-        if (!hash || hash === 'nav') {
+        document.querySelector('#entry').replaceChildren()
+        if (!hash || hash === 'nav')
             document.querySelector('#stack').showChild(document.querySelector('#feed'))
-            document.querySelector('#entry').replaceChildren()
+        else if (hash === 'search') {
+            getSearch(templatedSearch)
+                .then(search => renderSearch(search, baseURL))
+                .catch(e => console.error(e))
         }
-        else renderEntry(JSON.parse(decodeURIComponent(hash)), baseURL)
-            .catch(e => console.error(e))
-    })
-    document.querySelector('#stack').showChild(document.querySelector('#feed'))
+        else {
+            const [groupIndex, itemIndex] = hash.split(',').map(x => parseInt(x))
+            const group = feed.groups[groupIndex]
+            const items = group.publications ?? group.navigation
+            renderEntry(items[itemIndex], baseURL)
+                .catch(e => console.error(e))
+        }
+        globalThis.state.searchEnabled = hash !== 'search'
+        globalThis.updateState()
+    }
+    addEventListener('hashchange', update)
+    update()
 }
 
-const renderOpenSearch = (doc, baseURL) => {
+const getSearch = async link => {
+    const { replace, getVariables } = await import('./uri-template.js')
+    return {
+        metadata: {
+            title: link.title,
+        },
+        search: map => replace(link.href, map.get(null)),
+        params: Array.from(getVariables(link.href), name => ({
+            label: name === 'query' ? globalThis.uiText.query
+            : globalThis.uiText.metadata[name] ?? name,
+            param: name,
+        })),
+    }
+}
+
+const getOpenSearch = doc => {
     const defaultNS = doc.documentElement.namespaceURI
     const filter = filterNS(defaultNS)
     const children = Array.from(doc.documentElement.children)
@@ -733,14 +774,34 @@ const renderOpenSearch = (doc, baseURL) => {
         ['outputEncoding', 'UTF-8'],
     ])
 
-    const template = resolveURL($url.getAttribute('template'), baseURL)
-    const search = map => template.replace(regex, (_, prefix, param) => {
-        const namespace = prefix ? $url.lookupNamespaceURI(prefix) : null
-        const ns = namespace === defaultNS ? null : namespace
-        const val = map.get(ns)?.get(param)
-        return val ? val : (!ns ? defaultMap.get(param) ?? '' : '')
-    })
+    const template = $url.getAttribute('template')
+    return {
+        metadata: {
+            title: (children.find(filter('LongName')) ?? children.find(filter('ShortName')))?.textContent,
+            description: children.find(filter('Description'))?.textContent,
+        },
+        search: map => template.replace(regex, (_, prefix, param) => {
+            const namespace = prefix ? $url.lookupNamespaceURI(prefix) : null
+            const ns = namespace === defaultNS ? null : namespace
+            const val = map.get(ns)?.get(param)
+            return val ? val : (!ns ? defaultMap.get(param) ?? '' : '')
+        }),
+        params: Array.from(template.matchAll(regex), ([, prefix, param, optional]) => {
+            const namespace = prefix ? $url.lookupNamespaceURI(prefix) : null
+            const ns = namespace === defaultNS ? null : namespace
+            return {
+                label: (ns === null && param === 'searchTerms'
+                    ? globalThis.uiText.query
+                    : globalThis.uiText.metadata[param] ?? param),
+                ns, param,
+                required: !optional,
+                value: ns && ns !== defaultNS ? '' : defaultMap.get(param) ?? '',
+            }
+        }),
+    }
+}
 
+const renderSearch = (search, baseURL) => {
     document.querySelector('#search form').onsubmit = e => {
         e.preventDefault()
         const map = new Map()
@@ -750,40 +811,31 @@ const renderOpenSearch = (doc, baseURL) => {
             if (map.has(ns)) map.get(ns).set(param, value)
             else map.set(ns, new Map([[param, value]]))
         }
-        location = '?url=' + encodeURIComponent(search(map))
+        location = '?url=' + encodeURIComponent(resolveURL(search.search(map), baseURL))
     }
 
-    document.querySelector('#search h1').textContent =
-        (children.find(filter('LongName')) ?? children.find(filter('ShortName')))?.textContent ?? ''
-    document.querySelector('#search p').textContent =
-        children.find(filter('Description'))?.textContent ?? ''
-    document.querySelector('#search button').textContent = globalThis.uiText.search
+    document.querySelector('#search h1').textContent = search.metadata.title ?? ''
+    document.querySelector('#search p').textContent = search.metadata.description ?? ''
 
-    const container = document.querySelector('#search-params')
-    for (const [, prefix, param, optional] of template.matchAll(regex)) {
-        const namespace = prefix ? $url.lookupNamespaceURI(prefix) : null
-        const ns = namespace === defaultNS ? null : namespace
-
+    document.querySelector('#search-params').replaceChildren(...search.params.map(obj => {
         const input = document.createElement('input')
-        if (ns) input.dataset.ns = ns
-        input.dataset.param = param
-        input.required = !optional
-        input.type = 'text'
-        input.value = ns && ns !== defaultNS ? '' : defaultMap.get(param) ?? ''
+        if (obj.ns) input.dataset.ns = obj.ns
+        input.dataset.param = obj.param
+        input.required = obj.required
+        input.type = 'search'
+        input.value = obj.value ?? ''
 
         const label = document.createElement('label')
         const span = document.createElement('span')
-        span.textContent = (ns === NS.ATOM
-            ? globalThis.uiText.atomParams[param]
-            : globalThis.uiText.openSearchParams[param] ?? param)
+        span.textContent = obj.label
         label.append(span, input)
 
         const p = document.createElement('p')
         p.append(label)
-        container.append(p)
-    }
+        return p
+    }))
     document.querySelector('#stack').showChild(document.querySelector('#search'))
-    container.querySelector('input').focus()
+    document.querySelector('#search input').focus()
 }
 
 globalThis.updateState = () => emit({ type: 'state', state: globalThis.state })
@@ -793,6 +845,7 @@ document.querySelector('#error h1').textContent = globalThis.uiText.error
 document.querySelector('#error button').textContent = globalThis.uiText.reload
 document.querySelector('#error button').onclick = () => location.reload()
 document.querySelector('#feed a[href="#nav"]').title = globalThis.uiText.filter
+document.querySelector('#search button').textContent = globalThis.uiText.search
 
 try {
     const params = new URLSearchParams(location.search)
@@ -805,7 +858,7 @@ try {
         const { documentElement: { localName } } = doc
         if (localName === 'feed') await renderFeed(getFeed(doc), url)
         else if (localName === 'entry') await renderEntry(getPublication(doc.documentElement), url)
-        else if (localName === 'OpenSearchDescription') renderOpenSearch(doc, url)
+        else if (localName === 'OpenSearchDescription') renderSearch(getOpenSearch(doc), url)
         else throw new Error(`root element is <${localName}>; expected <feed> or <entry>`)
     }
     else {

@@ -5,6 +5,7 @@ import Gio from 'gi://Gio'
 import GLib from 'gi://GLib'
 import Gdk from 'gi://Gdk'
 import GdkPixbuf from 'gi://GdkPixbuf'
+import Pango from 'gi://Pango'
 import cairo from 'gi://cairo'
 import { gettext as _ } from 'gettext'
 import * as utils from './utils.js'
@@ -66,16 +67,11 @@ const uiText = {
         _('Next'),
         _('Last'),
     ],
-    openSearchParams: {
-        searchTerms: _('Search Terms'),
-        language: _('Language'),
-    },
-    atomParams: {
+    query: _('Search Terms'),
+    metadata: {
         title: _('Title'),
         author: _('Author'),
         contributor: _('Contributor'),
-    },
-    metadata: {
         publisher: _('Publisher'),
         published: _('Published'),
         language: _('Language'),
@@ -531,7 +527,8 @@ GObject.registerClass({
                     break
                 case 'state':
                     this.#state = payload.state
-                    this.actionGroup.lookup_action('search').enabled = !!this.#state?.search
+                    this.actionGroup.lookup_action('search').enabled =
+                        !!this.#state?.search && !!this.#state?.searchEnabled
                     this.emit('state-changed', this.#state)
                     break
             }
@@ -546,6 +543,12 @@ GObject.registerClass({
     load(url) {
         this.actionGroup.lookup_action('search').enabled = false
         if (!this.child) this.init()
+        if (url === '#search') {
+            this.child.run("location = location.href.split('#')[0] + '#search'")
+                .then(() => this.child.grab_focus())
+                .catch(e => console.debug(e))
+            return
+        }
         this.child.loadURI(`foliate-opds:///opds/opds.html?url=${encodeURIComponent(url)}`)
             .then(() => this.child.grab_focus())
             .catch(e => console.error(e))
@@ -615,7 +618,9 @@ const SidebarRow = GObject.registerClass({
     },
 }, class extends Gtk.Box {
     #icon = new Gtk.Image()
-    #label = new Gtk.Label()
+    #label = new Gtk.Label({
+        ellipsize: Pango.EllipsizeMode.END,
+    })
     #menu = new Gio.Menu()
     #popover = new Gtk.PopoverMenu({
         has_arrow: false,
