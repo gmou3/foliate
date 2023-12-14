@@ -479,6 +479,7 @@ GObject.registerClass({
             }),
         })
         const initFuncs = [
+            webView.provide('formatNumber', format.number),
             webView.provide('formatMime', format.mime),
             webView.provide('formatPrice',
                 price => price ? format.price(price.currency, price.value) : ''),
@@ -494,7 +495,7 @@ GObject.registerClass({
                     const lang = format.locales[0].baseName
                     webView.run(`globalThis.uiText = ${JSON.stringify(uiText)}
                     document.documentElement.lang = "${lang}"
-                    import('./opds.js').catch(e => console.error(e))`)
+                    import('./main.js').catch(e => console.error(e))`)
                         .catch(e => console.error(e))
                     for (const f of initFuncs) f()
 
@@ -549,7 +550,7 @@ GObject.registerClass({
                 .catch(e => console.debug(e))
             return
         }
-        this.child.loadURI(`foliate-opds:///opds/opds.html?url=${encodeURIComponent(url)}`)
+        this.child.loadURI(`foliate-opds:///opds/main.html?url=${encodeURIComponent(url)}`)
             .then(() => this.child.grab_focus())
             .catch(e => console.error(e))
     }
