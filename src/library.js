@@ -55,7 +55,7 @@ const uiText = {
         'http://opds-spec.org/acquisition': _('Download'),
         'http://opds-spec.org/acquisition/buy': _('Buy'),
         'http://opds-spec.org/acquisition/open-access': _('Download'),
-        'http://opds-spec.org/acquisition/preview': _('Preview'),
+        'preview': _('Preview'),
         'http://opds-spec.org/acquisition/sample': _('Sample'),
         'http://opds-spec.org/acquisition/borrow': _('Borrow'),
         'http://opds-spec.org/acquisition/subscribe': _('Subscribe'),
@@ -541,15 +541,17 @@ GObject.registerClass({
         webView.set_background_color(new Gdk.RGBA())
         this.child = webView
     }
-    load(url) {
+    load(url, isSearch) {
         this.actionGroup.lookup_action('search').enabled = false
         if (!this.child) this.init()
-        if (url === '#search') {
+        if (isSearch && url === '#search') {
             this.child.run("location = location.href.split('#')[0] + '#search'")
                 .then(() => this.child.grab_focus())
                 .catch(e => console.debug(e))
             return
         }
+        url = url.replace(/^opds:\/\//, 'http://')
+        if (!url.includes(':')) url = 'http://' + url
         this.child.loadURI(`foliate-opds:///opds/main.html?url=${encodeURIComponent(url)}`)
             .then(() => this.child.grab_focus())
             .catch(e => console.error(e))
@@ -561,7 +563,7 @@ GObject.registerClass({
         this.child.go_forward()
     }
     search() {
-        if (this.#state?.search) this.load(this.#state.search)
+        if (this.#state?.search) this.load(this.#state.search, true)
     }
     download({ href, token }) {
         const webView = this.child
@@ -598,8 +600,8 @@ GObject.registerClass({
             this.#downloads.set(token, new WeakRef(download))
         })
             .then(file => {
-                const launcher = new Gtk.FileLauncher({ file, always_ask: true })
-                launcher.launch(this.root, null, null)
+                if (file) new Gtk.FileLauncher({ file, always_ask: true })
+                    .launch(this.root, null, null)
             })
             .catch(e => {
                 console.error(e)
@@ -849,7 +851,7 @@ export const Library = GObject.registerClass({
         })
         this._sidebar_list_box.connect('row-activated', (__, row) => {
             const { type, value } = row.child.item
-            if (value === 'add-catalog') return this.addCatalog()
+            if (value === 'add-catalog') return this.addCatalog().catch(e => console.error(e))
             if (value === 'library') return this._main_stack.visible_child = this._library_toolbar_view
             if (type === 'catalog') return this.showCatalog(value)
         })
@@ -896,7 +898,13 @@ export const Library = GObject.registerClass({
         })
         this.showCatalog(url)
     }
-    addCatalog() {
+    async addCatalog() {
+        let text = ''
+        try {
+            text = await utils.getClipboardText()
+        } catch (e) {
+            console.warn(e)
+        }
         const { window, button } = this.root.actionDialog()
         const submit = () => {
             const url = entry.text.trim()
@@ -916,6 +924,7 @@ export const Library = GObject.registerClass({
         const entry = utils.connect(new Adw.EntryRow({
             title: _('URL'),
             input_purpose: Gtk.InputPurpose.URL,
+            text: /^(http|https|opds):\/\//.test(text) ? text : '',
         }), { 'entry-activated': submit })
         group.add(entry)
         window.content.content.child = group
