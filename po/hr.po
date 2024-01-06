@@ -1,57 +1,56 @@
-# French translations for com.github.johnfactotum.Foliate package.
-# Copyright (C) 2020 THE com.github.johnfactotum.Foliate'S COPYRIGHT HOLDER
+# Croatian translations for com.github.johnfactotum.Foliate package
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.johnfactotum.Foliate package.
-# Julien Humbert <julroy67@gmail.com>, 2019-2020.
-# mathieu <mathieu.bousquet2@gmail.com>, 2022.
-# Irénée THIRION <irenee.thirion@e.email>, 2023-2024.
+# Milo Ivir <mail@milotype.de>, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.johnfactotum.Foliate\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-12-19 04:33+0000\n"
-"PO-Revision-Date: 2024-01-03 17:11+0100\n"
-"Last-Translator: Irénée THIRION <irenee.thirion@e.email>\n"
-"Language-Team: French <gnomefr@traduc.org>\n"
-"Language: fr\n"
+"PO-Revision-Date: 2024-01-05 00:49+0100\n"
+"Last-Translator: Milo Ivir <mail@milotype.de>\n"
+"Language-Team: \n"
+"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Gtranslator 45.3\n"
-"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"X-Generator: Poedit 3.0\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 
 #: src/annotations.js:137 src/annotations.js:172
 msgid "Bookmark deleted"
-msgstr "Marque-page supprimé"
+msgstr "Straničnik je izbrisan"
 
 #: src/annotations.js:138 src/annotations.js:173 src/book-viewer.js:809
 #: src/library.js:826
 msgid "Undo"
-msgstr "Annuler"
+msgstr "Poništi"
 
 #: src/annotations.js:437
 msgid "Underline"
-msgstr "Surligner"
+msgstr "Podcrtano"
 
 #: src/annotations.js:438
 msgid "Squiggly"
-msgstr "Ondulations"
+msgstr "Valovito"
 
 #: src/annotations.js:439
 msgid "Strikethrough"
-msgstr "Barrer"
+msgstr "Precrtano"
 
 #: src/annotations.js:440
 msgid "Yellow"
-msgstr "Jaune"
+msgstr "Žuta"
 
 #: src/annotations.js:441
 msgid "Orange"
-msgstr "Orange"
+msgstr "Narančasta"
 
 #: src/annotations.js:442
 msgid "Red"
-msgstr "Rouge"
+msgstr "Crvena"
 
 #: src/annotations.js:443
 msgid "Magenta"
@@ -59,223 +58,222 @@ msgstr "Magenta"
 
 #: src/annotations.js:444
 msgid "Aqua"
-msgstr "Cyan"
+msgstr "Akvamarin"
 
 #: src/annotations.js:445
 msgid "Lime"
-msgstr "Citron vert"
+msgstr "Limunasta"
 
 #: src/annotations.js:446
 msgid "Custom Color…"
-msgstr "Couleur personnalisée…"
+msgstr "Prilagođena boja …"
 
 #: src/annotations.js:498
 msgid "Custom"
-msgstr "Personnalisé"
+msgstr "Prilagođeno"
 
 #: src/annotations.js:592
 msgid "JSON Files"
-msgstr "Fichiers JSON"
+msgstr "JSON datoteke"
 
 #: src/annotations.js:597 src/app.js:149
 msgid "All Files"
-msgstr "Tous les fichiers"
+msgstr "Sve datoteke"
 
 #: src/annotations.js:606 src/annotations.js:634 src/ui/book-viewer.ui:402
 msgid "No Annotations"
-msgstr "Aucune annotation"
+msgstr "Bez pribilježaka"
 
 #: src/annotations.js:607
 msgid "The imported file has no annotations"
-msgstr "Le fichier importé ne comporte pas d’annotations"
+msgstr "Uvezena datoteka nema pribilješke"
 
 #: src/annotations.js:625
 msgid "Cannot Import Annotations"
-msgstr "Impossible d’importer les annotations"
+msgstr "Nije moguće učitati pribilješke"
 
 #: src/annotations.js:626 src/book-viewer.js:720 src/library.js:605
 msgid "An error occurred"
-msgstr "Une erreur s’est produite"
+msgstr "Došlo je do greške"
 
 #: src/annotations.js:635
 msgid "You don’t have any annotations for this book"
-msgstr "Vous n’avez aucune annotation dans ce livre"
+msgstr "Za ovu knjigu nemaš nijednu pribilješku"
 
 #: src/annotations.js:648
 #, javascript-format
 msgid "Annotations for “%s”"
-msgstr "Annotations pour « %s »"
+msgstr "Pribilješke za „%s”"
 
 #: src/annotations.js:649
 #, javascript-format
 msgid "%d Annotation"
 msgid_plural "%d Annotations"
-msgstr[0] "%d annotation"
-msgstr[1] "%d annotations"
+msgstr[0] "%d pribilješka"
+msgstr[1] "%d pribilješke"
+msgstr[2] "%d pribilježaka"
 
 #: src/app.js:95 src/book-viewer.js:30
 msgid "Close"
-msgstr "Fermer"
+msgstr "Zatvori"
 
 #: src/app.js:112 src/library.js:50 src/ui/export-dialog.ui:11
 #: src/ui/import-dialog.ui:15
 msgid "Cancel"
-msgstr "Annuler"
+msgstr "Odustani"
 
 #: src/app.js:136
 msgid "E-Book Files"
-msgstr "Fichiers E-Book"
+msgstr "Datoteke e-knjiga"
 
 #: src/app.js:399 data/com.github.johnfactotum.Foliate.desktop.in:6
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:7
 msgid "Read e-books in style"
-msgstr "Lisez vos livres électroniques avec style"
+msgstr "Čitaj e-knjige u stilu"
 
 #. Translators: put your names here, one name per line
 #. they will be shown in the "About" dialog
 #: src/app.js:405
 msgid "translator-credits"
-msgstr ""
-"Julien Humbert <julroy67@gmail.com>, Mathieu Bousquet <mathieu."
-"bousquet2@gmail.com>"
+msgstr "Milo Ivir <mail@milotype.de>"
 
 #: src/app.js:414
 msgid "Source Code"
-msgstr "Code source"
+msgstr "Izvorni kod"
 
 #: src/book-info.js:125 src/library.js:75
 msgid "Publisher"
-msgstr "Éditeur"
+msgstr "Izdavač"
 
 #. Translators: this is the heading for the publication date
 #: src/book-info.js:127 src/library.js:76
 msgid "Published"
-msgstr "Publié"
+msgstr "Objavljeno"
 
 #. Translators: this is the heading for the modified date
 #: src/book-info.js:129
 msgid "Updated"
-msgstr "Mis à jour"
+msgstr "Aktualizirano"
 
 #: src/book-info.js:130 src/library.js:77
 msgid "Language"
-msgstr "Langue"
+msgstr "Jezik"
 
 #: src/book-info.js:131
 msgid "Translated by"
-msgstr "Traduit par"
+msgstr "Prevoditelj:"
 
 #: src/book-info.js:132
 msgid "Edited by"
-msgstr "Édité par"
+msgstr "Urednik:"
 
 #: src/book-info.js:133
 msgid "Narrated by"
-msgstr "Conté par"
+msgstr "Narator:"
 
 #: src/book-info.js:134
 msgid "Illustrated by"
-msgstr "Illustré par"
+msgstr "Ilustrator:"
 
 #: src/book-info.js:135
 msgid "Produced by"
-msgstr "Produit par"
+msgstr "Producent:"
 
 #: src/book-info.js:136
 msgid "Artwork by"
-msgstr "Graphisme par"
+msgstr "Umjetnik:"
 
 #: src/book-info.js:137
 msgid "Color by"
-msgstr "Couleurs par"
+msgstr "Kolorist:"
 
 #: src/book-info.js:138
 msgid "Contributors"
-msgstr "Contributeurs"
+msgstr "Doprinositelji"
 
 #: src/book-info.js:139 src/library.js:78 src/ui/navbar.ui:283
 msgid "Identifier"
-msgstr "Identifiant"
+msgstr "Identifikator"
 
 #: src/book-info.js:171 src/ui/book-item.ui:11 src/ui/book-row.ui:11
 #: src/ui/book-viewer.ui:368
 msgid "About This Book"
-msgstr "À propos de ce livre"
+msgstr "O ovoj knjizi"
 
 #: src/book-viewer.js:27
 #, javascript-format
 msgid "Loc. %s of %s"
-msgstr "Loc. %s sur %s"
+msgstr "Mjesto %s od %s"
 
 #: src/book-viewer.js:28
 #, javascript-format
 msgid "Page %s of %s"
-msgstr "Page %s sur %s"
+msgstr "%s. stranica od %s"
 
 #: src/book-viewer.js:29
 #, javascript-format
 msgid "Page %s"
-msgstr "Page %s"
+msgstr "%s. stranica"
 
 #: src/book-viewer.js:32
 msgid "Footnote"
-msgstr "Note de bas de page"
+msgstr "Fusnota"
 
 #: src/book-viewer.js:33
 msgid "Go to Footnote"
-msgstr "Aller à la note de bas de page"
+msgstr "Idi na fusnotu"
 
 #: src/book-viewer.js:34
 msgid "Endnote"
-msgstr "Note de fin"
+msgstr "Završna bilješka"
 
 #: src/book-viewer.js:35
 msgid "Go to Endnote"
-msgstr "Aller à la note de fin"
+msgstr "Idi na završnu bilješku"
 
 #: src/book-viewer.js:36
 msgid "Note"
-msgstr "Note"
+msgstr "Bilješka"
 
 #: src/book-viewer.js:37
 msgid "Go to Note"
-msgstr "Aller à la note"
+msgstr "Idi na bilješku"
 
 #: src/book-viewer.js:38
 msgid "Definition"
-msgstr "Définition"
+msgstr "Definicija"
 
 #: src/book-viewer.js:39
 msgid "Go to Definition"
-msgstr "Aller à la définition"
+msgstr "Idi na definiciju"
 
 #: src/book-viewer.js:40
 msgid "Bibliography"
-msgstr "Bibliographie"
+msgstr "Bibliografija"
 
 #: src/book-viewer.js:41
 msgid "Go to Bibliography"
-msgstr "Aller à la bibliographie"
+msgstr "Idi na bibliografiju"
 
 #: src/book-viewer.js:619
 msgid "Remove bookmark"
-msgstr "Supprimer le marque-page"
+msgstr "Ukloni straničnik"
 
 #: src/book-viewer.js:620
 msgid "Add bookmark"
-msgstr "Ajouter un marque-page"
+msgstr "Dodaj straničnik"
 
 #: src/book-viewer.js:718
 msgid "File not found"
-msgstr "Fichier non trouvé"
+msgstr "Datoteka nije pronađena"
 
 #: src/book-viewer.js:719
 msgid "File type not supported"
-msgstr "Type de fichier non pris en charge"
+msgstr "Vrsta dokumenta nije podržana"
 
 #: src/book-viewer.js:808
 msgid "Annotation deleted"
-msgstr "Annotation supprimée"
+msgstr "Pribilješka je izbrisana"
 
 #: src/book-viewer.js:876
 #, javascript-format
@@ -284,7 +282,7 @@ msgid ""
 "—%s, “%s”, p. %s"
 msgstr ""
 "‘%s’\n"
-"—%s, “%s”, p. %s"
+"– %s, „%s”, %s. stranica"
 
 #: src/book-viewer.js:878
 #, javascript-format
@@ -293,12 +291,12 @@ msgid ""
 "—“%s”, p. %s"
 msgstr ""
 "‘%s’\n"
-"—“%s”, p. %s"
+"– „%s”, %s. stranica"
 
 #: src/book-viewer.js:879
 #, javascript-format
 msgid "‘%s’ (p. %s)"
-msgstr "‘%s’ (p. %s)"
+msgstr "‘%s’ (%s. stranica)"
 
 #: src/book-viewer.js:882
 #, javascript-format
@@ -307,7 +305,7 @@ msgid ""
 "—%s, “%s”"
 msgstr ""
 "‘%s’\n"
-"—%s, “%s”"
+"– %s, „%s”"
 
 #: src/book-viewer.js:884
 #, javascript-format
@@ -316,7 +314,7 @@ msgid ""
 "—“%s”"
 msgstr ""
 "‘%s’\n"
-"—“%s”"
+"– „%s”"
 
 #: src/book-viewer.js:885
 #, javascript-format
@@ -326,175 +324,173 @@ msgstr "‘%s’"
 #: src/book-viewer.js:903
 #, javascript-format
 msgid "Image from “%s”"
-msgstr "Image de « %s »"
+msgstr "Slika od „%s”"
 
 #: src/book-viewer.js:903
 msgid "Image"
-msgstr "Image"
+msgstr "Slika"
 
 #: src/format.js:122
 #, javascript-format
 msgid "of %d"
-msgstr "sur %d"
+msgstr "od %d"
 
 #: src/library.js:47
 msgid "Loading"
-msgstr "Chargement"
+msgstr "Učitavanje"
 
 #: src/library.js:48
 msgid "Failed to Load"
-msgstr "Chargement échoué"
+msgstr "Neuspjelo učitavanje"
 
 #: src/library.js:49 src/ui/book-viewer.ui:15
 msgid "Reload"
-msgstr "Recharger"
+msgstr "Učitaj ponovo"
 
 #: src/library.js:51
 msgid "See All"
-msgstr "Voir tout"
+msgstr "Pogledaj sve"
 
 #: src/library.js:52 src/ui/library.ui:124 src/ui/library.ui:182
 msgid "Search"
-msgstr "Rechercher"
+msgstr "Pretraži"
 
 #: src/library.js:53
 msgid "Filter"
-msgstr "Filtrer"
+msgstr "Filtriraj"
 
 #: src/library.js:55 src/library.js:57
 msgid "Download"
-msgstr "Télécharger"
+msgstr "Preuzmi"
 
 #: src/library.js:56
 msgid "Buy"
-msgstr "Acheter"
+msgstr "Kupi"
 
 #: src/library.js:58
 msgid "Preview"
-msgstr "Aperçu"
+msgstr "Pregled"
 
 #: src/library.js:59
 msgid "Sample"
-msgstr "Échantillon"
+msgstr "Uzorak"
 
 #: src/library.js:60
 msgid "Borrow"
-msgstr "Emprunter"
+msgstr "Posudi"
 
 #: src/library.js:61
 msgid "Subscribe"
-msgstr "Souscrire"
+msgstr "Pretplati se"
 
 #: src/library.js:63
 msgid "Free"
-msgstr "Gratuit"
+msgstr "Besplatno"
 
 #: src/library.js:65
 msgid "First"
-msgstr "Premier"
+msgstr "Prva"
 
 #: src/library.js:66 src/ui/navbar.ui:8 src/ui/tts-box.ui:115
 msgid "Previous"
-msgstr "Précédent"
+msgstr "Prethodna"
 
 #: src/library.js:67 src/ui/navbar.ui:124 src/ui/tts-box.ui:132
 msgid "Next"
-msgstr "Suivant"
+msgstr "Sljedeća"
 
 #: src/library.js:68
 msgid "Last"
-msgstr "Dernier"
+msgstr "Zadnja"
 
 #: src/library.js:70
 msgid "Search Terms"
-msgstr "Termes recherchés"
+msgstr "Traži pojmove"
 
 #: src/library.js:72
 msgid "Title"
-msgstr "Titre"
+msgstr "Naslov"
 
 #: src/library.js:73
 msgid "Author"
-msgstr "Auteur"
+msgstr "Autor"
 
 #: src/library.js:74
 msgid "Contributor"
-msgstr "Contributeur"
+msgstr "Doprinositelj"
 
 #: src/library.js:433
 msgid "Remove Book?"
-msgstr "Supprimer le livre ?"
+msgstr "Ukloniti knjigu?"
 
 #: src/library.js:434
 msgid "Reading progress, annotations, and bookmarks will be permanently lost"
-msgstr ""
-"La progression de la lecture, les annotations et les marque-pages seront "
-"définitivement perdus"
+msgstr "Napredak čitanja, pribilješke i straničnici će se zauvijek izgubiti"
 
 #: src/library.js:436
 msgid "_Cancel"
-msgstr "A_nnuler"
+msgstr "_Odustani"
 
 #: src/library.js:437
 msgid "_Remove"
-msgstr "_Supprimer"
+msgstr "_Ukloni"
 
 #: src/library.js:605
 msgid "Download Failed"
-msgstr "Téléchargement échoué"
+msgstr "Preuzimanje nije uspjelo"
 
 #: src/library.js:659
 msgid "Rename…"
-msgstr "Renommer…"
+msgstr "Preimenuj …"
 
 #: src/library.js:660 src/ui/book-item.ui:21 src/ui/book-row.ui:21
 msgid "Remove"
-msgstr "Supprimer"
+msgstr "Ukloni"
 
 #: src/library.js:680 src/library.js:681
 msgid "Rename"
-msgstr "Renommer"
+msgstr "Preimenuj"
 
 #: src/library.js:686
 msgid "Name"
-msgstr "Nom"
+msgstr "Ime"
 
 #: src/library.js:701
 msgid "All Books"
-msgstr "Tous les livres"
+msgstr "Sve knjige"
 
 #: src/library.js:707
 msgid "Add Catalog…"
-msgstr "Ajouter un catalogue…"
+msgstr "Dodaj katalog …"
 
 #: src/library.js:774 src/ui/book-viewer.ui:130 src/ui/book-viewer.ui:239
 #: src/ui/library.ui:93
 msgid "Library"
-msgstr "Bibliothèque"
+msgstr "Biblioteka"
 
 #: src/library.js:782
 msgid "Catalogs"
-msgstr "Catalogues"
+msgstr "Katalozi"
 
 #: src/library.js:825
 msgid "Catalog removed"
-msgstr "Catalogue supprimé"
+msgstr "Katalog je uklonjen"
 
 #: src/library.js:912 src/library.js:917
 msgid "Add Catalog"
-msgstr "Ajouter un catalogue"
+msgstr "Dodaj katalog"
 
 #: src/library.js:913
 msgid "Add"
-msgstr "Ajouter"
+msgstr "Dodaj"
 
 #: src/library.js:918
 msgid ""
 "You can browse and download books from OPDS catalogs. <a href=\"https://opds."
 "io\">Learn More…</a>"
 msgstr ""
-"Vous pouvez parcourir et télécharger des livres depuis les catalogues OPDS. "
-"<a href=\"https://opds.io\">En savoir plus…</a>"
+"Knjige se mogu pregledavati i preuzimati iz OPDS kataloga. <a href=\"https://"
+"opds.io\">Saznaj više …</a>"
 
 #: src/library.js:922
 msgid "URL"
@@ -507,27 +503,27 @@ msgstr "Foliate"
 
 #: src/selection-tools.js:72
 msgid "Dictionary"
-msgstr "Dictionnaire"
+msgstr "Rječnik"
 
 #: src/selection-tools.js:96
 msgid ""
 "From <a id=\"link\">Wiktionary</a>, released under the <a href=\"https://"
 "creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA License</a>."
 msgstr ""
-"De <a id=\"link\">Wiktionary</a>, distribué sous la <a href=\"https://"
-"creativecommons.org/licenses/by-sa/4.0/\">Licence CC BY-SA</a>."
+"Od <a id=\"link\">Wiktionary</a>, objavljeno pod licensom<a href=\"https://"
+"creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA</a>."
 
 #: src/selection-tools.js:144 src/selection-tools.js:232
 msgid "No Definitions Found"
-msgstr "Aucune définition trouvée"
+msgstr "Nije pronđena nijedna definicija"
 
 #: src/selection-tools.js:146
 msgid "Search on Wiktionary"
-msgstr "Rechercher sur Wiktionary"
+msgstr "Traži na Wiktionary"
 
 #: src/selection-tools.js:183
 msgid "Wikipedia"
-msgstr "Wikipédia"
+msgstr "Wikipedia"
 
 #: src/selection-tools.js:202
 msgid ""
@@ -535,57 +531,56 @@ msgid ""
 "wikipedia.org/wiki/Wikipedia:Text_of_the_Creative_Commons_Attribution-"
 "ShareAlike_4.0_International_License\">CC BY-SA License</a>."
 msgstr ""
-"De <a id=\"link\">Wikipédia</a>, distribué sous la <a href=\"https://en."
-"wikipedia.org/wiki/Wikipedia:Text_of_the_Creative_Commons_Attribution-"
-"ShareAlike_4.0_International_License\">Licence CC BY-SA</a>."
+"Od <a id=\"link\">Wikipedia</a>, objavljeno pod licensom<a href=\"https://"
+"creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA</a>."
 
 #: src/selection-tools.js:234
 msgid "Search on Wikipedia"
-msgstr "Rechercher sur Wikipédia"
+msgstr "Traži na Wikipedia"
 
 #: src/selection-tools.js:243
 msgid "Translate"
-msgstr "Traduire"
+msgstr "Prevedi"
 
 #: src/selection-tools.js:269
 msgid "Translation by Google Translate"
-msgstr "Traduction par Google Traduction"
+msgstr "Prijevod: Google prevoditelj"
 
 #: src/selection-tools.js:280
 msgid "Cannot retrieve translation"
-msgstr "Impossible de récupérer la traduction"
+msgstr "Nije moguće pronaći prijevod"
 
 #: src/themes.js:9
 msgid "Default"
-msgstr "Par défaut"
+msgstr "Zadano"
 
 #: src/themes.js:14
 msgid "Gray"
-msgstr "Gris"
+msgstr "Siva"
 
 #: src/themes.js:19
 msgid "Sepia"
-msgstr "Sépia"
+msgstr "Tamnosmeđa"
 
 #: src/themes.js:24
 msgid "Grass"
-msgstr "Herbe"
+msgstr "Trava"
 
 #: src/themes.js:29
 msgid "Cherry"
-msgstr "Cerise"
+msgstr "Trešnja"
 
 #: src/themes.js:34
 msgid "Sky"
-msgstr "Ciel"
+msgstr "Nebo"
 
 #: src/themes.js:39
 msgid "Solarized"
-msgstr "Solarisé"
+msgstr "Solarno"
 
 #: src/themes.js:44
 msgid "Gruvbox"
-msgstr "Coffret"
+msgstr "Gruvbox"
 
 #: src/themes.js:49
 msgid "Nord"
@@ -593,210 +588,211 @@ msgstr "Nord"
 
 #: src/tts.js:117
 msgid "Text-to-Speech Error"
-msgstr "Erreur de synthèse vocale"
+msgstr "Greška u pretvaranju teksta u govor"
 
 #: src/tts.js:118
 msgid "Make sure Speech Dispatcher is installed and working on your system"
 msgstr ""
-"Assurez que Speech Dispatcher est installé et fonctionnel sur votre système"
+"Provjeri je li Speech Dispatcher (sučelje za govornu jedinicu) instaliran i "
+"je li radi na tvom sustavu"
 
 #: src/utils.js:168
 msgid "Copied to clipboard"
-msgstr "Copié vers le presse-papiers"
+msgstr "Kopirano u međuspremnik"
 
 #: src/ui/annotation-popover.ui:13
 msgid "Highlight Style"
-msgstr "Style de surlignage"
+msgstr "Stil za isticanje"
 
 #: src/ui/annotation-popover.ui:20 src/ui/annotation-row.ui:63
 #: src/ui/bookmark-row.ui:33
 msgid "Delete"
-msgstr "Supprimer"
+msgstr "Izbriši"
 
 #: src/ui/annotation-popover.ui:28 src/ui/book-item.ui:61 src/ui/book-row.ui:75
 #: src/ui/image-viewer.ui:62
 msgid "Menu"
-msgstr "Menu"
+msgstr "Izbornik"
 
 #: src/ui/annotation-popover.ui:47
 msgid "Add Note…"
-msgstr "Ajouter une note…"
+msgstr "Dodaj bilješku …"
 
 #: src/ui/book-item.ui:5 src/ui/book-row.ui:5
 msgid "Open in New Window"
-msgstr "Ouvrir dans une nouvelle fenêtre"
+msgstr "Otvori u novom prozoru"
 
 #: src/ui/book-item.ui:15 src/ui/book-row.ui:15 src/ui/book-viewer.ui:25
 msgid "Export Annotations…"
-msgstr "Exporter les annotations…"
+msgstr "Izvezi pribilješke …"
 
 #: src/ui/book-viewer.ui:5
 msgid "New Window"
-msgstr "Nouvelle fenêtre"
+msgstr "Novi prozor"
 
 #: src/ui/book-viewer.ui:11
 msgid "Open a Copy"
-msgstr "Ouvrir une copie"
+msgstr "Otvori kopiju"
 
 #: src/ui/book-viewer.ui:21
 msgid "Import Annotations…"
-msgstr "Importer les annotations…"
+msgstr "Uvezi pribilješke …"
 
 #: src/ui/book-viewer.ui:37 src/ui/library.ui:42
 msgid "About Foliate"
-msgstr "À propos de Foliate"
+msgstr "O programu Foliate"
 
 #: src/ui/book-viewer.ui:45
 msgid "All Sections"
-msgstr "Tous les chapitres"
+msgstr "Svi odlomci"
 
 #: src/ui/book-viewer.ui:50
 msgid "Current Section"
-msgstr "Chapitre actuel"
+msgstr "Aktualni odlomak"
 
 #: src/ui/book-viewer.ui:57
 msgid "Match Whole Words Only"
-msgstr "Mots entiers uniquement"
+msgstr "Usporedi samo cijele riječi"
 
 #: src/ui/book-viewer.ui:61
 msgid "Match Case"
-msgstr "Correspondre à la casse"
+msgstr "Usporedi veličinu slova"
 
 #: src/ui/book-viewer.ui:65
 msgid "Match Diacritics"
-msgstr "Signes diacritiques"
+msgstr "Usporedi dijakritičke znakove"
 
 #: src/ui/book-viewer.ui:83
 msgid "Font & Layout Settings"
-msgstr "Paramètre de police et mise en page"
+msgstr "Postavke fonta i rasporeda"
 
 #: src/ui/book-viewer.ui:89
 msgid "Scrolled Mode"
-msgstr "Mode défilement"
+msgstr "Modus listanja"
 
 #: src/ui/book-viewer.ui:93
 msgid "Invert Colors in Dark Mode"
-msgstr "Inverser les couleurs en mode sombre"
+msgstr "Invertiraj boje u tamnom modusu"
 
 #: src/ui/book-viewer.ui:97
 msgid "Autohide Cursor"
-msgstr "Masquer automatiquement le curseur"
+msgstr "Automatski sakrij kursor"
 
 #: src/ui/book-viewer.ui:103
 msgid "Print…"
-msgstr "Imprimer…"
+msgstr "Ispis …"
 
 #: src/ui/book-viewer.ui:107
 msgid "Inspector"
-msgstr "Inspecteur"
+msgstr "Inspektor"
 
 #: src/ui/book-viewer.ui:167
 msgid "Book Cannot Be Opened"
-msgstr "Le livre ne peut être ouvert"
+msgstr "Knjiga se ne može otvoriti"
 
 #: src/ui/book-viewer.ui:177
 msgid "Details"
-msgstr "Détails"
+msgstr "Pojediosti"
 
 #: src/ui/book-viewer.ui:193
 msgid "Open Another File…"
-msgstr "Ouvrir un autre fichier…"
+msgstr "Otvori jednu drugu datoteku …"
 
 #: src/ui/book-viewer.ui:245
 msgid "Pin Sidebar"
-msgstr "Épingler la barre latérale"
+msgstr "Prikvači bočni stupac"
 
 #: src/ui/book-viewer.ui:253
 msgid "Book Menu"
-msgstr "Menu du livre"
+msgstr "Izbornik knjiga"
 
 #: src/ui/book-viewer.ui:260 src/ui/selection-popover.ui:17
 msgid "Find"
-msgstr "Rechercher"
+msgstr "Pronađi"
 
 #: src/ui/book-viewer.ui:276
 msgid "Find in book…"
-msgstr "Rechercher dans le livre…"
+msgstr "Pronađi u knjizi …"
 
 #: src/ui/book-viewer.ui:313
 msgid "Contents"
-msgstr "Contenu"
+msgstr "Sadržaj"
 
 #: src/ui/book-viewer.ui:391
 msgid "Annotations"
-msgstr "Annotations"
+msgstr "Pribilješke"
 
 #: src/ui/book-viewer.ui:403
 msgid "Select some text to add annotations"
-msgstr "Sélectionnez du texte pour ajouter des annotations"
+msgstr "Odaberi neki tekst za dodavanje pribilježaka"
 
 #: src/ui/book-viewer.ui:433
 msgid "Filter annotations…"
-msgstr "Filtrer les annotations…"
+msgstr "Filtriraj pribilješke …"
 
 #: src/ui/book-viewer.ui:447
 msgid "Bookmarks"
-msgstr "Marque-pages"
+msgstr "Straničnici"
 
 #: src/ui/book-viewer.ui:458
 msgid "No Bookmarks"
-msgstr "Aucun marque-page"
+msgstr "Nema straničnika"
 
 #: src/ui/book-viewer.ui:459
 msgid "Add some bookmarks to see them here"
-msgstr "Ajoutez des marque-pages pour les visualiser ici"
+msgstr "Dodaj neke straničnike kako bi se ovdje prikazali"
 
 #: src/ui/book-viewer.ui:498 src/ui/library-view.ui:42
 msgid "No Results Found"
-msgstr "Aucun résultat trouvé"
+msgstr "Nema rezultata"
 
 #: src/ui/book-viewer.ui:499 src/ui/library-view.ui:43
 msgid "Try a different search"
-msgstr "Essayez une autre recherche"
+msgstr "Pokušaj drugačiju pretragu"
 
 #: src/ui/book-viewer.ui:542 src/ui/library.ui:102 src/ui/library.ui:160
 msgid "Sidebar"
-msgstr "Barre latérale"
+msgstr "Bočni stupac"
 
 #: src/ui/book-viewer.ui:556
 msgid "View Menu"
-msgstr "Menu de visualisation"
+msgstr "Izbornik prikaza"
 
 #: src/ui/book-viewer.ui:569 src/ui/image-viewer.ui:41
 msgid "Zoom Out"
-msgstr "Rétrécir la vue"
+msgstr "Smanji prikaz"
 
 #: src/ui/book-viewer.ui:576 src/ui/image-viewer.ui:48
 msgid "Reset Zoom"
-msgstr "Réinitialiser le zoom"
+msgstr "Obnovi uvećanje prikaza"
 
 #: src/ui/book-viewer.ui:585 src/ui/image-viewer.ui:55
 msgid "Zoom In"
-msgstr "Agrandir"
+msgstr "Uvećaj prikaz"
 
 #: src/ui/book-viewer.ui:601
 msgid "Follow System Style"
-msgstr "Suivre le thème système"
+msgstr "Slijedi stil sustava"
 
 #: src/ui/book-viewer.ui:611
 msgid "Light Style"
-msgstr "Style clair"
+msgstr "Svijetli stil"
 
 #: src/ui/book-viewer.ui:621
 msgid "Dark Style"
-msgstr "Style sombre"
+msgstr "Tamni stil"
 
 #: src/ui/book-viewer.ui:636 src/ui/library.ui:26
 msgid "Fullscreen"
-msgstr "Plein écran"
+msgstr "Cjeloekranski prikaz"
 
 #: src/ui/export-dialog.ui:5
 msgid "Export Annotations"
-msgstr "Exporter les annotations"
+msgstr "Izvoz pribilježaka"
 
 #: src/ui/export-dialog.ui:16
 msgid "Export"
-msgstr "Exporter"
+msgstr "Izvoz"
 
 #: src/ui/export-dialog.ui:28
 msgid "Format"
@@ -804,8 +800,7 @@ msgstr "Format"
 
 #: src/ui/export-dialog.ui:29
 msgid "Choose “JSON” if you plan on importing annotations back to Foliate"
-msgstr ""
-"Choisissez « JSON » si vous comptez ré-importer vos annotations vers Foliate"
+msgstr "Odaberi „JSON” ako planiraš uvoziti pribilješke natrag u Foliate"
 
 #: src/ui/export-dialog.ui:33
 msgid "JSON"
@@ -821,285 +816,282 @@ msgstr "Markdown"
 
 #: src/ui/export-dialog.ui:36
 msgid "Org Mode"
-msgstr "Org-mode"
+msgstr "Org Mode"
 
 #: src/ui/image-viewer.ui:6 src/ui/navbar.ui:302 src/ui/selection-popover.ui:7
 msgid "Copy"
-msgstr "Copier"
+msgstr "Kopiraj"
 
 #: src/ui/image-viewer.ui:10
 msgid "Save As…"
-msgstr "Enregistrer sous…"
+msgstr "Spremi kao …"
 
 #: src/ui/image-viewer.ui:25
 msgid "Rotate 90° Counter-Clockwise"
-msgstr "Rotation de 90° en sens antihoraire"
+msgstr "Okreni za 90 ° ulijevo"
 
 #: src/ui/image-viewer.ui:32
 msgid "Rotate 90° Clockwise"
-msgstr "Rotation de 90° en sens horaire"
+msgstr "Okreni za 90 ° udesno"
 
 #: src/ui/import-dialog.ui:7
 msgid "Import Annotations"
-msgstr "Importer des annotations"
+msgstr "Uvoz pribilježaka"
 
 #: src/ui/import-dialog.ui:21
 msgid "Import"
-msgstr "Importer"
+msgstr "Uvoz"
 
 #: src/ui/import-dialog.ui:33
 msgid ""
 "The identifier doesn’t match. These annotations may not be for this book."
-msgstr ""
-"L’identifiant ne correspond pas. Ces annotations peuvent être celles d’un "
-"autre livre."
+msgstr "Identifikator se ne poklapa. Ove pribilješke možda nisu za ovu knjigu."
 
 #: src/ui/import-dialog.ui:34
 msgid "Import Anyway"
-msgstr "Importer quand même"
+msgstr "Svejedno uvezi"
 
 #: src/ui/library.ui:6
 msgid "List View"
-msgstr "Vue en liste"
+msgstr "Prikaz popisa"
 
 #: src/ui/library.ui:11
 msgid "Grid View"
-msgstr "Vue en grille"
+msgstr "Prikaz sličica"
 
 #: src/ui/library.ui:20 src/ui/library-view.ui:27
 msgid "Open…"
-msgstr "Ouvrir…"
+msgstr "Otvori …"
 
 #: src/ui/library.ui:67
 msgid "Main Menu"
-msgstr "Menu principal"
+msgstr "Glavni izbornik"
 
 #: src/ui/library.ui:110
 msgid "Open"
-msgstr "Ouvrir"
+msgstr "Otvori"
 
 #: src/ui/library.ui:117
 msgid "Library Menu"
-msgstr "Menu de la bibliothèque"
+msgstr "Izbornik biblioteke"
 
 #: src/ui/library.ui:134
 msgid "Search library…"
-msgstr "Rechercher dans la bibliothèque"
+msgstr "Pretraži biblioteku …"
 
 #: src/ui/library.ui:168 src/ui/navbar.ui:22
 msgid "Back"
-msgstr "Retour"
+msgstr "Natrag"
 
 #: src/ui/library.ui:175 src/ui/navbar.ui:36
 msgid "Forward"
-msgstr "Rétablir"
+msgstr "Naprijed"
 
 #: src/ui/library-view.ui:21
 msgid "No Books Yet"
-msgstr "Aucun livre"
+msgstr "Još nema knjiga"
 
 #: src/ui/library-view.ui:22
 msgid "Open a book to start reading"
-msgstr "Ouvrez un livre pour commencer à lire"
+msgstr "Otvori jednu knjigu i počni čitati"
 
 #: src/ui/navbar.ui:62 src/ui/navbar.ui:253
 msgid "Location"
-msgstr "Position"
+msgstr "Mjesto"
 
 #: src/ui/navbar.ui:91
 msgid "Narration"
-msgstr "Narration"
+msgstr "Naracija"
 
 #: src/ui/navbar.ui:162
 msgid "Time Left in Section"
-msgstr "Temps restant pour le chapitre"
+msgstr "Preostalo vrijeme u odlomku"
 
 #: src/ui/navbar.ui:192
 msgid "Time Left in Book"
-msgstr "Temps restant pour le livre"
+msgstr "Preostalo vrijeme u knjizi"
 
 #: src/ui/navbar.ui:226 src/ui/view-preferences-window.ui:159
 msgid "Page"
-msgstr "Page"
+msgstr "Stranica"
 
 #: src/ui/navbar.ui:309
 msgid "Paste and Go"
-msgstr "Copier et aller"
+msgstr "Umetni i idi"
 
 #: src/ui/navbar.ui:322
 msgid "Section"
-msgstr "Chapitre"
+msgstr "Odlomak"
 
 #: src/ui/navbar.ui:388
 msgid "First Section"
-msgstr "Premier chapitre"
+msgstr "Prvi odlomak"
 
 #: src/ui/navbar.ui:397
 msgid "Previous Section"
-msgstr "Chapitre précédent"
+msgstr "Prethodni odlomak"
 
 #: src/ui/navbar.ui:405
 msgid "Jump To…"
-msgstr "Aller à…"
+msgstr "Prijeđi na …"
 
 #: src/ui/navbar.ui:414
 msgid "Next Section"
-msgstr "Chapitre suivant"
+msgstr "Sljedeći odlomak"
 
 #: src/ui/navbar.ui:423
 msgid "Last Section"
-msgstr "Dernier chapitre"
+msgstr "Zadnji odlomak"
 
 #: src/ui/selection-popover.ui:12
 msgid "Highlight"
-msgstr "Surligner"
+msgstr "Istakni"
 
 #: src/ui/selection-popover.ui:30
 msgid "Speak from Here"
-msgstr "Lire à partir d’ici"
+msgstr "Govori odavdje"
 
 #: src/ui/selection-popover.ui:36
 msgid "Copy with Citation"
-msgstr "Copier avec Citation"
+msgstr "Kopiraj s citatom"
 
 #: src/ui/selection-popover.ui:40
 msgid "Copy Identifier"
-msgstr "Copier l’identifiant"
+msgstr "Kopiraj identifkatora"
 
 #: src/ui/selection-popover.ui:44
 msgid "Print Selection…"
-msgstr "Imprimer la sélection…"
+msgstr "Ispiši odabir …"
 
 #: src/ui/tts-box.ui:34
 msgid "Speed"
-msgstr "Vitesse"
+msgstr "Brzina"
 
 #: src/ui/tts-box.ui:67
 msgid "Pitch"
-msgstr "Ton"
+msgstr "Visina"
 
 #: src/ui/tts-box.ui:123
 msgid "Play/Pause"
-msgstr "Lecture/Pause"
+msgstr "Pokreni/Zaustavi"
 
 #: src/ui/tts-box.ui:141
 msgid "Stop"
-msgstr "Arrêter"
+msgstr "Prekini"
 
 #: src/ui/view-preferences-window.ui:5
 msgid "Font"
-msgstr "Police"
+msgstr "Font"
 
 #: src/ui/view-preferences-window.ui:9
 msgid "Font Size"
-msgstr "Taille de police"
+msgstr "Veličina fonta"
 
 #: src/ui/view-preferences-window.ui:12
 msgid "Default Font Size"
-msgstr "Taille de police par défaut"
+msgstr "Standardna veličina fonta"
 
 #: src/ui/view-preferences-window.ui:25
 msgid "Minimum Font Size"
-msgstr "Taille de police minimale"
+msgstr "Najmanja veličina fonta"
 
 #: src/ui/view-preferences-window.ui:40
 msgid "Font Family"
-msgstr "Famille de police"
+msgstr "Obitelj fontova"
 
 #: src/ui/view-preferences-window.ui:43
 msgid "Default Font"
-msgstr "Police par défaut"
+msgstr "Standardni font"
 
 #: src/ui/view-preferences-window.ui:47
 msgid "Serif"
-msgstr "Sérif"
+msgstr "Serifni"
 
 #: src/ui/view-preferences-window.ui:48
 msgid "Sans-serif"
-msgstr "Sans-sérif"
+msgstr "Bezserifni"
 
 #: src/ui/view-preferences-window.ui:56
 msgid "Override Publisher Font"
-msgstr "Outrepasser la police de l’éditeur"
+msgstr "Zamijeni font izdavača"
 
 #: src/ui/view-preferences-window.ui:71
 msgid "Serif Font"
-msgstr "Police sérif"
+msgstr "Serifni font"
 
 #: src/ui/view-preferences-window.ui:84
 msgid "Sans-Serif Font"
-msgstr "Police sans-sérif"
+msgstr "Bezserifni font"
 
 #: src/ui/view-preferences-window.ui:97
 msgid "Monospace Font"
-msgstr "Police monospace"
+msgstr "Jednometrični font"
 
 #: src/ui/view-preferences-window.ui:114
 msgid "Layout"
-msgstr "Disposition"
+msgstr "Raspored"
 
 #: src/ui/view-preferences-window.ui:118
 msgid "Paragraph"
-msgstr "Paragraphe"
+msgstr "Odlomak"
 
 #: src/ui/view-preferences-window.ui:121
 msgid "Line Height"
-msgstr "Hauteur de ligne"
+msgstr "Visina retka"
 
 #: src/ui/view-preferences-window.ui:135
 msgid "Full Justification"
-msgstr "Justifié"
+msgstr "Obostrano poravnanje"
 
 #: src/ui/view-preferences-window.ui:146
 msgid "Hyphenation"
-msgstr "Césure automatique"
+msgstr "Rastavljanje riječi"
 
 #: src/ui/view-preferences-window.ui:162
 msgid "Margins"
-msgstr "Marges"
+msgstr "Margine"
 
 #: src/ui/view-preferences-window.ui:176
 msgid "Maximum Number of Columns"
-msgstr "Nombre maximal de colonnes"
+msgstr "Maksimalni broj stupaca"
 
 #: src/ui/view-preferences-window.ui:189
 msgid "Maximum Inline Size"
-msgstr "Taille maximale de la ligne"
+msgstr "Maksimalna veličina elementa"
 
 #: src/ui/view-preferences-window.ui:190
 msgid "Maximum column width (horizontal writing) or height (vertical writing)"
 msgstr ""
-"Largeur (lecture horizontale) ou hauteur (lecture verticale) maximale de la "
-"colonne"
+"Maksimalna širina stupca (vodoravno pisanje) ili visina (okomito pisanje)"
 
 #: src/ui/view-preferences-window.ui:203
 msgid "Maximum Block Size"
-msgstr "Taille maximale des paragraphes"
+msgstr "Maksimalna veličina bloka"
 
 #: src/ui/view-preferences-window.ui:204
 msgid "Maximum height (horizontal writing) or width (vertical writing)"
-msgstr "Hauteur (lecture horizontale) ou largeur (lecture verticale) maximale"
+msgstr "Maksimalna visina (vodoravno pisanje) ili širina (okomito pisanje)"
 
 #: src/ui/view-preferences-window.ui:221
 msgid "Color"
-msgstr "Couleur"
+msgstr "Boja"
 
 #: src/ui/view-preferences-window.ui:240
 msgid "Behavior"
-msgstr "Comportement"
+msgstr "Ponašanje"
 
 #: src/ui/view-preferences-window.ui:246
 msgid "Reduce Animation"
-msgstr "Réduire les animations"
+msgstr "Smanji animciju"
 
 #: data/com.github.johnfactotum.Foliate.desktop.in:5
 msgid "E-Book Viewer"
-msgstr "Lecteur de livres électroniques"
+msgstr "Čitač e-knjiga"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/com.github.johnfactotum.Foliate.desktop.in:14
 msgid "Ebook;Book;EPUB;Viewer;Reader;"
-msgstr "Ebook;Livre;EPUB;Liseuse;Lecteur;"
+msgstr "Ebook;e-knjiga;Book;knjiga;EPUB;Viewer;prikazivač;Reader;čitač;"
 
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:10
 msgid ""
@@ -1107,50 +1099,49 @@ msgid ""
 "tailored for GNOME. Immerse yourself in a distraction-free interface, with "
 "customization features designed to match your unique preferences."
 msgstr ""
-"Ouvrez un nouveau chapitre dans vos lecture avec Foliate, le lecteur moderne "
-"de livres électroniques conçu pour GNOME. Immergez-vous dans une interface "
-"sans distractions, personnalisable pour correspondre à vos seules "
-"préférences."
+"Otkrij novo poglavlje čitajući pomoću Foliatea, modernim čitačem e-knjiga "
+"prilagođenim za GNOME. Foliate pruža jednostavno sučelje s mogučnošću "
+"prilagođavanja raznih funkcija vlastitim željama."
 
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:11
 msgid "Features include:"
-msgstr "Fonctionnalités inclues :"
+msgstr "Funkcije uključuju:"
 
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:13
 msgid "Open EPUB, Mobipocket, Kindle, FB2, CBZ, and PDF files"
-msgstr "Ouvrez des fichiers EPUB, Mobipocket, Kindle, FB2, CBZ, et PDF"
+msgstr "Otvori EPUB, Mobipocket, Kindle, FB2, CBZ i PDF datoteke"
 
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:14
 msgid "Paginated mode and scrolled mode"
-msgstr "Modes pagination et défilement"
+msgstr "Modus paginacije i modus listanja"
 
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:15
 msgid "Customize font and line-spacing"
-msgstr "Personnaliser la police et l’espacement des lignes"
+msgstr "Prilagodi font i razmak između redaka"
 
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:16
 msgid "Light, sepia, dark, and invert mode"
-msgstr "Modes clair, sépia, sombre et inversé"
+msgstr "Svijetli, tamnosmeđi, tamni i invertirani modus"
 
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:17
 msgid "Reading progress slider with chapter marks"
-msgstr "Barre de progression de lecture avec marquage des chapitres"
+msgstr "Klizač napretka čitanja s oznakama poglavlja"
 
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:18
 msgid "Bookmarks and annotations"
-msgstr "Marque-pages et annotations"
+msgstr "Straničnici i pribilješke"
 
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:19
 msgid "Find in book"
-msgstr "Recherche dans le livre"
+msgstr "Pronađi u knjizi"
 
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:20
 msgid "Quick dictionary lookup"
-msgstr "Vérification dans le dictionnaire"
+msgstr "Brzo pretraživanje rječnika"
 
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:30
 msgid "Book"
-msgstr "Livre"
+msgstr "Knjiga"
 
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:31
 msgid "EPUB"
@@ -1162,11 +1153,11 @@ msgstr "Ebook"
 
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:33
 msgid "Reader"
-msgstr "Lecteur"
+msgstr "Čitač"
 
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:34
 msgid "Viewer"
-msgstr "Visionneur"
+msgstr "Prikazivač"
 
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:63
 msgid ""
@@ -1174,6 +1165,6 @@ msgid ""
 "and the latest platform libraries, GTK 4 and Libadwaita, with refreshed UI "
 "and improved performance."
 msgstr ""
-"Foliate a été entièrement réécri avec un nouveau moteur de rendu des livres "
-"et les dernières bibliothèques de la plateforme, GTK4 et Libadwaita, ainsi "
-"qu’une interface rafraîchie et des performances améliorées."
+"Foliate je potpuno novo programiran s novom bibliotekom za prikaz e-knjiga i "
+"najnovijim bibliotekama platforme, GTK 4 i Libadwaita, sa svježim "
+"korisničkim sučeljem i poboljšanom performancom."
