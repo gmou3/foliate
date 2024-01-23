@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: com.github.johnfactotum.Foliate\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-12-19 04:33+0000\n"
-"PO-Revision-Date: 2023-10-07 14:00+0200\n"
+"PO-Revision-Date: 2024-23-01 23:55+0200\n"
 "Last-Translator: Giorgos Mousa <gmou3@hotmail.com>\n"
 "Language-Team: Greek <LL@li.org>\n"
 "Language: el\n"
@@ -895,7 +895,7 @@ msgstr "Άνοιγμα…"
 #: src/ui/library.ui:117
 #, fuzzy
 msgid "Library Menu"
-msgstr "Βιβλιοθήκη"
+msgstr "Μενού Βιβλιοθήκης"
 
 #: src/ui/library.ui:134
 msgid "Search library…"
@@ -1028,27 +1028,27 @@ msgstr "Προκαθορισμένη Γραμματοσειρά"
 
 #: src/ui/view-preferences-window.ui:47
 msgid "Serif"
-msgstr ""
+msgstr "Με Πατούρες"
 
 #: src/ui/view-preferences-window.ui:48
 msgid "Sans-serif"
-msgstr ""
+msgstr "Χωρίς Πατούρες"
 
 #: src/ui/view-preferences-window.ui:56
 msgid "Override Publisher Font"
-msgstr ""
+msgstr "Παράκαμψη Γραμματοσειράς Εκδότη"
 
 #: src/ui/view-preferences-window.ui:71
 msgid "Serif Font"
-msgstr ""
+msgstr "Γραμματοσειρά με Πατούρες"
 
 #: src/ui/view-preferences-window.ui:84
 msgid "Sans-Serif Font"
-msgstr ""
+msgstr "Γραμματοσειρά χωρίς Πατούρες"
 
 #: src/ui/view-preferences-window.ui:97
 msgid "Monospace Font"
-msgstr ""
+msgstr "Ισοπαχής Γραμματοσειρά"
 
 #: src/ui/view-preferences-window.ui:114
 msgid "Layout"
@@ -1101,7 +1101,7 @@ msgstr "Χρώμα"
 
 #: src/ui/view-preferences-window.ui:240
 msgid "Behavior"
-msgstr ""
+msgstr "Συμπεριφορά"
 
 #: src/ui/view-preferences-window.ui:246
 #, fuzzy
