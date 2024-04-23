@@ -1,280 +1,278 @@
-# SOME DESCRIPTIVE TITLE.
+# Occitan translation file.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.johnfactotum.Foliate package.
-# Aman Rawat <dv451197@gmail.com>, 2023.
-# Scrambled777 <weblate.scrambled777@simplelogin.com>, 2024.
+# Quentin PAGÈS, 2024.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.johnfactotum.Foliate\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-12-19 04:33+0000\n"
-"PO-Revision-Date: 2024-03-31 17:28+0530\n"
-"Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
-"Language-Team: Hindi\n"
-"Language: hi\n"
+"PO-Revision-Date: 2024-04-06 15:34+0200\n"
+"Last-Translator: Quentin PAGÈS\n"
+"Language-Team: \n"
+"Language: oc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Gtranslator 46.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: src/annotations.js:137 src/annotations.js:172
 msgid "Bookmark deleted"
-msgstr "बुकमार्क हटा दिया गया"
+msgstr "Marcapagina suprimit"
 
 #: src/annotations.js:138 src/annotations.js:173 src/book-viewer.js:809
 #: src/library.js:826
 msgid "Undo"
-msgstr "पूर्ववत"
+msgstr "Desfar"
 
 #: src/annotations.js:437
 msgid "Underline"
-msgstr "रेखांकित"
+msgstr "Soslinhar"
 
 #: src/annotations.js:438
 msgid "Squiggly"
-msgstr "टेढ़ा-मेढ़ा"
+msgstr "Desformat"
 
 #: src/annotations.js:439
 msgid "Strikethrough"
-msgstr "स्ट्राइकथ्रू"
+msgstr "Raiat"
 
 #: src/annotations.js:440
 msgid "Yellow"
-msgstr "पीला"
+msgstr "Jaune"
 
 #: src/annotations.js:441
 msgid "Orange"
-msgstr "नारंगी"
+msgstr "Irange"
 
 #: src/annotations.js:442
 msgid "Red"
-msgstr "लाल"
+msgstr "Roge"
 
 #: src/annotations.js:443
 msgid "Magenta"
-msgstr "मैजेंटा"
+msgstr "Magenta"
 
 #: src/annotations.js:444
 msgid "Aqua"
-msgstr "एक्वा"
+msgstr "Aiga"
 
 #: src/annotations.js:445
 msgid "Lime"
-msgstr "नीबू हरा"
+msgstr "Verd citron"
 
 #: src/annotations.js:446
 msgid "Custom Color…"
-msgstr "कस्टम रंग…"
+msgstr "Colors personalizadas…"
 
 #: src/annotations.js:498
 msgid "Custom"
-msgstr "कस्टम"
+msgstr "Personalizar"
 
 #: src/annotations.js:592
 msgid "JSON Files"
-msgstr "JSON फाइलें"
+msgstr "Fichièrs JSON"
 
 #: src/annotations.js:597 src/app.js:149
 msgid "All Files"
-msgstr "सभी फाइलें"
+msgstr "Totes los fichièrs"
 
 #: src/annotations.js:606 src/annotations.js:634 src/ui/book-viewer.ui:402
 msgid "No Annotations"
-msgstr "कोई एनोटेशन नहीं"
+msgstr "Cap d’anotacion"
 
 #: src/annotations.js:607
 msgid "The imported file has no annotations"
-msgstr "आयातित फाइल में कोई एनोटेशन नहीं है"
+msgstr "Lo fichièr importat a pas cap d’anotacion"
 
 #: src/annotations.js:625
 msgid "Cannot Import Annotations"
-msgstr "एनोटेशन आयात नहीं कर सकते"
+msgstr "Importacion de las anotacions impossibla"
 
 #: src/annotations.js:626 src/book-viewer.js:720 src/library.js:605
 msgid "An error occurred"
-msgstr "एक त्रुटि हुई"
+msgstr "Una error s'es producha"
 
 #: src/annotations.js:635
 msgid "You don’t have any annotations for this book"
-msgstr "इस पुस्तक के लिए आपके पास कोई एनोटेशन नहीं है"
+msgstr "Avètz pas cap d’anotacion per aqueste libre"
 
 #: src/annotations.js:648
 #, javascript-format
 msgid "Annotations for “%s”"
-msgstr "“%s” के लिए एनोटेशन"
+msgstr "Anotacions per « %s »"
 
 #: src/annotations.js:649
 #, javascript-format
 msgid "%d Annotation"
 msgid_plural "%d Annotations"
-msgstr[0] "%d एनोटेशन"
-msgstr[1] "%d एनोटेशन"
+msgstr[0] "%d anotacion"
+msgstr[1] "%d anotacions"
 
 #: src/app.js:95 src/book-viewer.js:30
 msgid "Close"
-msgstr "बंद"
+msgstr "Tampar"
 
 #: src/app.js:112 src/library.js:50 src/ui/export-dialog.ui:11
 #: src/ui/import-dialog.ui:15
 msgid "Cancel"
-msgstr "रद्द"
+msgstr "Anullar"
 
 #: src/app.js:136
 msgid "E-Book Files"
-msgstr "ई-पुस्तक फाइलें"
+msgstr "Fichièrs E-Book"
 
 #: src/app.js:399 data/com.github.johnfactotum.Foliate.desktop.in:6
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:7
 msgid "Read e-books in style"
-msgstr "अंदाज़ से ई-पुस्तकें पढ़ें"
+msgstr "Legir d’e-books amb estil"
 
 #. Translators: put your names here, one name per line
 #. they will be shown in the "About" dialog
 #: src/app.js:405
 msgid "translator-credits"
-msgstr ""
-"Aman Rawat\n"
-"Scrambled777 <weblate.scrambled777@simplelogin.com>, 2024"
+msgstr "Quentin PAGÈS"
 
 #: src/app.js:414
 msgid "Source Code"
-msgstr "स्रोत कोड"
+msgstr "Còdi font"
 
 #: src/book-info.js:125 src/library.js:75
 msgid "Publisher"
-msgstr "प्रकाशक"
+msgstr "Editor"
 
 #. Translators: this is the heading for the publication date
 #: src/book-info.js:127 src/library.js:76
 msgid "Published"
-msgstr "प्रकाशित"
+msgstr "Publicat"
 
 #. Translators: this is the heading for the modified date
 #: src/book-info.js:129
 msgid "Updated"
-msgstr "अपडेट किया गया"
+msgstr "Mes a jorn"
 
 #: src/book-info.js:130 src/library.js:77
 msgid "Language"
-msgstr "भाषा"
+msgstr "Lenga"
 
 #: src/book-info.js:131
 msgid "Translated by"
-msgstr "इनके द्वारा अनुवादित"
+msgstr "Traduch per"
 
 #: src/book-info.js:132
 msgid "Edited by"
-msgstr "इनके द्वारा संपादित"
+msgstr "Editat per"
 
 #: src/book-info.js:133
 msgid "Narrated by"
-msgstr "इनके द्वारा वर्णित"
+msgstr "Narrat per"
 
 #: src/book-info.js:134
 msgid "Illustrated by"
-msgstr "इनके द्वारा चित्रित"
+msgstr "Illustrat per"
 
 #: src/book-info.js:135
 msgid "Produced by"
-msgstr "इनके द्वारा निर्मित"
+msgstr "Produch per"
 
 #: src/book-info.js:136
 msgid "Artwork by"
-msgstr "इनके द्वारा कलाकृति"
+msgstr "Grafisme per"
 
 #: src/book-info.js:137
 msgid "Color by"
-msgstr "इनके द्वारा रंग"
+msgstr "Color per"
 
 #: src/book-info.js:138
 msgid "Contributors"
-msgstr "योगदानकर्ता"
+msgstr "Contributors"
 
 #: src/book-info.js:139 src/library.js:78 src/ui/navbar.ui:283
 msgid "Identifier"
-msgstr "पहचानकर्ता"
+msgstr "Identificator"
 
 #: src/book-info.js:171 src/ui/book-item.ui:11 src/ui/book-row.ui:11
 #: src/ui/book-viewer.ui:368
 msgid "About This Book"
-msgstr "इस पुस्तक के बारे में"
+msgstr "A prepaus d’aqueste libre"
 
 #: src/book-viewer.js:27
 #, javascript-format
 msgid "Loc. %s of %s"
-msgstr "स्थान %s का %s"
+msgstr "Emp. %s de %s"
 
 #: src/book-viewer.js:28
 #, javascript-format
 msgid "Page %s of %s"
-msgstr "पृष्ठ %s का %s"
+msgstr "Pagina %s de %s"
 
 #: src/book-viewer.js:29
 #, javascript-format
 msgid "Page %s"
-msgstr "पृष्ठ %s"
+msgstr "Pagina %s"
 
 #: src/book-viewer.js:32
 msgid "Footnote"
-msgstr "पाद-लेख"
+msgstr "Nòta de pè de pagina"
 
 #: src/book-viewer.js:33
 msgid "Go to Footnote"
-msgstr "पाद-लेख पर जाएँ"
+msgstr "Anar a la nòta de pè de pagina"
 
 #: src/book-viewer.js:34
 msgid "Endnote"
-msgstr "समाप्ति-लेख"
+msgstr "Nòta de fin"
 
 #: src/book-viewer.js:35
 msgid "Go to Endnote"
-msgstr "समाप्ति-लेख पर जाएँ"
+msgstr "Anar a la nòta de fin"
 
 #: src/book-viewer.js:36
 msgid "Note"
-msgstr "टिप्पणी"
+msgstr "Nòta"
 
 #: src/book-viewer.js:37
 msgid "Go to Note"
-msgstr "टिप्पणी पर जाएँ"
+msgstr "Anar a la nòta"
 
 #: src/book-viewer.js:38
 msgid "Definition"
-msgstr "परिभाषा"
+msgstr "Definicion"
 
 #: src/book-viewer.js:39
 msgid "Go to Definition"
-msgstr "परिभाषा पर जाएँ"
+msgstr "Anar a la definicion"
 
 #: src/book-viewer.js:40
 msgid "Bibliography"
-msgstr "ग्रन्थसूची"
+msgstr "Bibliografia"
 
 #: src/book-viewer.js:41
 msgid "Go to Bibliography"
-msgstr "ग्रंथसूची पर जाएँ"
+msgstr "Anar a la biografia"
 
 #: src/book-viewer.js:619
 msgid "Remove bookmark"
-msgstr "बुकमार्क हटाएँ"
+msgstr "Suprimir lo marcapagina"
 
 #: src/book-viewer.js:620
 msgid "Add bookmark"
-msgstr "बुकमार्क जोड़ें"
+msgstr "Apondre un marcapagina"
 
 #: src/book-viewer.js:718
 msgid "File not found"
-msgstr "फाइल प्राप्त नहीं हुई"
+msgstr "Impossible de trobar lo fichièr"
 
 #: src/book-viewer.js:719
 msgid "File type not supported"
-msgstr "फाइल प्रकार समर्थित नहीं है"
+msgstr "Tipe Mime pas pres en carga"
 
 #: src/book-viewer.js:808
 msgid "Annotation deleted"
-msgstr "एनोटेशन मिटाया गया"
+msgstr "Anotacion suprimida"
 
 #: src/book-viewer.js:876
 #, javascript-format
@@ -282,8 +280,8 @@ msgid ""
 "‘%s’\n"
 "—%s, “%s”, p. %s"
 msgstr ""
-"‘%s’\n"
-"—%s, “%s”, p. %s"
+"« %s »\n"
+"—%s, « %s », p. %s"
 
 #: src/book-viewer.js:878
 #, javascript-format
@@ -291,13 +289,13 @@ msgid ""
 "‘%s’\n"
 "—“%s”, p. %s"
 msgstr ""
-"‘%s’\n"
-"—“%s”, p. %s"
+"« %s »\n"
+"— « %s », p. %s"
 
 #: src/book-viewer.js:879
 #, javascript-format
 msgid "‘%s’ (p. %s)"
-msgstr "‘%s’ (p. %s)"
+msgstr "« %s » (p. %s)"
 
 #: src/book-viewer.js:882
 #, javascript-format
@@ -305,8 +303,8 @@ msgid ""
 "‘%s’\n"
 "—%s, “%s”"
 msgstr ""
-"‘%s’\n"
-"—%s, “%s”"
+"« %s »\n"
+"—%s, « %s »"
 
 #: src/book-viewer.js:884
 #, javascript-format
@@ -314,184 +312,186 @@ msgid ""
 "‘%s’\n"
 "—“%s”"
 msgstr ""
-"‘%s’\n"
-"—“%s”"
+"« %s »\n"
+"— « %s »"
 
 #: src/book-viewer.js:885
 #, javascript-format
 msgid "‘%s’"
-msgstr "‘%s’"
+msgstr "« %s »"
 
 #: src/book-viewer.js:903
 #, javascript-format
 msgid "Image from “%s”"
-msgstr "\"%s\" से छवि"
+msgstr "Imatge de « %s »"
 
 #: src/book-viewer.js:903
 msgid "Image"
-msgstr "छवि"
+msgstr "Imatge"
 
 #: src/format.js:122
 #, javascript-format
 msgid "of %d"
-msgstr "%d का"
+msgstr "de %d"
 
 #: src/library.js:47
 msgid "Loading"
-msgstr "लोड हो रहा है"
+msgstr "Cargament"
 
 #: src/library.js:48
 msgid "Failed to Load"
-msgstr "लोड करने में विफल"
+msgstr "Fracàs de cargament"
 
 #: src/library.js:49 src/ui/book-viewer.ui:15
 msgid "Reload"
-msgstr "पुनः लोड करें"
+msgstr "Recargar"
 
 #: src/library.js:51
 msgid "See All"
-msgstr "सभी देखें"
+msgstr "Tot veire"
 
 #: src/library.js:52 src/ui/library.ui:124 src/ui/library.ui:182
 msgid "Search"
-msgstr "खोजें"
+msgstr "Recercar"
 
 #: src/library.js:53
 msgid "Filter"
-msgstr "फिल्टर"
+msgstr "Filtre"
 
 #: src/library.js:55 src/library.js:57
 msgid "Download"
-msgstr "डाउनलोड"
+msgstr "Telecargar"
 
 #: src/library.js:56
 msgid "Buy"
-msgstr "खरीदें"
+msgstr "Crompar"
 
 #: src/library.js:58
 msgid "Preview"
-msgstr "पूर्वावलोकन"
+msgstr "Apercebut"
 
 #: src/library.js:59
 msgid "Sample"
-msgstr "नमूना"
+msgstr "Exemple"
 
 #: src/library.js:60
 msgid "Borrow"
-msgstr "उधार"
+msgstr "Manlevar"
 
 #: src/library.js:61
 msgid "Subscribe"
-msgstr "सदस्यता लें"
+msgstr "S'abonar"
 
 #: src/library.js:63
 msgid "Free"
-msgstr "मुफ़्त"
+msgstr "Gratuit"
 
 #: src/library.js:65
 msgid "First"
-msgstr "पहला"
+msgstr "Primièr"
 
 #: src/library.js:66 src/ui/navbar.ui:8 src/ui/tts-box.ui:115
 msgid "Previous"
-msgstr "पिछला"
+msgstr "Precedent"
 
 #: src/library.js:67 src/ui/navbar.ui:124 src/ui/tts-box.ui:132
 msgid "Next"
-msgstr "अगला"
+msgstr "Seguent"
 
 #: src/library.js:68
 msgid "Last"
-msgstr "अंतिम"
+msgstr "Darrièr"
 
 #: src/library.js:70
 msgid "Search Terms"
-msgstr "खोज शब्द"
+msgstr "Tèrmes de recercar"
 
 #: src/library.js:72
 msgid "Title"
-msgstr "शीर्षक"
+msgstr "Títol"
 
 #: src/library.js:73
 msgid "Author"
-msgstr "लेखक"
+msgstr "Autor"
 
 #: src/library.js:74
 msgid "Contributor"
-msgstr "योगदानकर्ता"
+msgstr "Contributor"
 
 #: src/library.js:433
 msgid "Remove Book?"
-msgstr "पुस्तक हटाएँ?"
+msgstr "Suprimir lo libre ?"
 
 #: src/library.js:434
 msgid "Reading progress, annotations, and bookmarks will be permanently lost"
-msgstr "पढ़ने की प्रगति, एनोटेशन और बुकमार्क स्थायी रूप से खो जाएंगे"
+msgstr ""
+"La progression de la lectura, las anotacion e marcapaginas seràn perduts per "
+"totjorn"
 
 #: src/library.js:436
 msgid "_Cancel"
-msgstr "रद्द (_C)"
+msgstr "_Anullar"
 
 #: src/library.js:437
 msgid "_Remove"
-msgstr "निकालें (_R)"
+msgstr "_Suprimir"
 
 #: src/library.js:605
 msgid "Download Failed"
-msgstr "डाउनलोड विफल"
+msgstr "Fracàs del telecargament"
 
 #: src/library.js:659
 msgid "Rename…"
-msgstr "नाम बदलें…"
+msgstr "Renomenar…"
 
 #: src/library.js:660 src/ui/book-item.ui:21 src/ui/book-row.ui:21
 msgid "Remove"
-msgstr "हटाएँ"
+msgstr "Suprimir"
 
 #: src/library.js:680 src/library.js:681
 msgid "Rename"
-msgstr "नाम बदलें"
+msgstr "Renomenar"
 
 #: src/library.js:686
 msgid "Name"
-msgstr "नाम"
+msgstr "Nom"
 
 #: src/library.js:701
 msgid "All Books"
-msgstr "सभी पुस्तकें"
+msgstr "Totes los libres"
 
 #: src/library.js:707
 msgid "Add Catalog…"
-msgstr "सूचीपत्र जोड़ें…"
+msgstr "Apondre catalòg…"
 
 #: src/library.js:774 src/ui/book-viewer.ui:130 src/ui/book-viewer.ui:239
 #: src/ui/library.ui:93
 msgid "Library"
-msgstr "पुस्तकालय"
+msgstr "Bibliotèca"
 
 #: src/library.js:782
 msgid "Catalogs"
-msgstr "सूचीपत्र"
+msgstr "Catalògs"
 
 #: src/library.js:825
 msgid "Catalog removed"
-msgstr "सूचीपत्र हटाया गया"
+msgstr "Catalòg suprimir"
 
 #: src/library.js:912 src/library.js:917
 msgid "Add Catalog"
-msgstr "सूचीपत्र जोड़ें"
+msgstr "Apondre catalòg"
 
 #: src/library.js:913
 msgid "Add"
-msgstr "जोड़ें"
+msgstr "Apondre"
 
 #: src/library.js:918
 msgid ""
 "You can browse and download books from OPDS catalogs. <a href=\"https://opds."
 "io\">Learn More…</a>"
 msgstr ""
-"आप OPDS सूचीपत्र से किताबें ब्राउज़ और डाउनलोड कर सकते हैं। <a href='https://opds."
-"io'>और जानें...</a>"
+"Podètz percórrer e telecargar de libres a partir del catalòg OPDS. <a href="
+"\"https://opds.io\">Ne saber mai…</a>"
 
 #: src/library.js:922
 msgid "URL"
@@ -504,27 +504,27 @@ msgstr "Foliate"
 
 #: src/selection-tools.js:72
 msgid "Dictionary"
-msgstr "शब्दकोष"
+msgstr "Diccionari"
 
 #: src/selection-tools.js:96
 msgid ""
 "From <a id=\"link\">Wiktionary</a>, released under the <a href=\"https://"
 "creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA License</a>."
 msgstr ""
-"<a id=\"link\">Wiktionary</a> से, <a href=\"https://creativecommons.org/"
-"licenses/by-sa/4.0/\">CC BY-SA लाइसेंस</a> के तहत जारी किया गया ."
+"De <a id=\"link\">Wikiccionari</a>, publicat sota la licéncia <a href="
+"\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA</a>."
 
 #: src/selection-tools.js:144 src/selection-tools.js:232
 msgid "No Definitions Found"
-msgstr "कोई परिभाषा नहीं मिली"
+msgstr "Cap de definicion pas trobada"
 
 #: src/selection-tools.js:146
 msgid "Search on Wiktionary"
-msgstr "Wiktionary पर खोजें"
+msgstr "Cercar sul Wikiccionari"
 
 #: src/selection-tools.js:183
 msgid "Wikipedia"
-msgstr "Wikipedia"
+msgstr "Wikipèdia"
 
 #: src/selection-tools.js:202
 msgid ""
@@ -532,277 +532,277 @@ msgid ""
 "wikipedia.org/wiki/Wikipedia:Text_of_the_Creative_Commons_Attribution-"
 "ShareAlike_4.0_International_License\">CC BY-SA License</a>."
 msgstr ""
-"<a id=\"link\">Wikipedia</a> से, <a href=\"https://en.wikipedia.org/wiki/"
-"Wikipedia:Text_of_the_Creative_Commons_Attribution-"
-"ShareAike_4.0_International_License\">CC BY-SA लाइसेंस< के तहत जारी किया गया /"
-"ए>."
+"De <a id=\"link\">Wikipèdia</a>, publicat sota la licéncia <a href=\"https://"
+"en.wikipedia.org/wiki/Wikipedia:Text_of_the_Creative_Commons_Attribution-"
+"ShareAlike_4.0_International_License\">CC BY-SA</a>."
 
 #: src/selection-tools.js:234
 msgid "Search on Wikipedia"
-msgstr "Wikipedia पर खोजें"
+msgstr "Cercar sus Wikipèdia"
 
 #: src/selection-tools.js:243
 msgid "Translate"
-msgstr "अनुवाद"
+msgstr "Traduire"
 
 #: src/selection-tools.js:269
 msgid "Translation by Google Translate"
-msgstr "Google Translate द्वारा अनुवाद"
+msgstr "Traduccion de Google Translate"
 
 #: src/selection-tools.js:280
 msgid "Cannot retrieve translation"
-msgstr "अनुवाद पुनर्प्राप्त नहीं किया जा सका"
+msgstr "Recuperacion impossibla de la traduccion"
 
 #: src/themes.js:9
 msgid "Default"
-msgstr "डिफॉल्ट"
+msgstr "Per defaut"
 
 #: src/themes.js:14
 msgid "Gray"
-msgstr "स्लेटी"
+msgstr "Gris"
 
 #: src/themes.js:19
 msgid "Sepia"
-msgstr "सेपिया"
+msgstr "Sèpia"
 
 #: src/themes.js:24
 msgid "Grass"
-msgstr "घास"
+msgstr "Èrba"
 
 #: src/themes.js:29
 msgid "Cherry"
-msgstr "चैरी"
+msgstr "Cerièra"
 
 #: src/themes.js:34
 msgid "Sky"
-msgstr "आकाश"
+msgstr "Cèl"
 
 #: src/themes.js:39
 msgid "Solarized"
-msgstr "सौर्यकृत"
+msgstr "Solarizat"
 
 #: src/themes.js:44
 msgid "Gruvbox"
-msgstr "ग्रुवबॉक्स"
+msgstr "Aisinas"
 
 #: src/themes.js:49
 msgid "Nord"
-msgstr "नॉर्ड"
+msgstr "Nòrd"
 
 #: src/tts.js:117
 msgid "Text-to-Speech Error"
-msgstr "पाठ-से-वाक् त्रुटि"
+msgstr "Error de sintèsi vocala"
 
 #: src/tts.js:118
 msgid "Make sure Speech Dispatcher is installed and working on your system"
-msgstr "सुनिश्चित करें कि स्पीच डिस्पैचर इंस्टॉल है और आपके सिस्टम पर काम कर रहा है"
+msgstr ""
+"Asseguratz-vos que Speech Dispatcher es installat e fonciona sul sistèma"
 
 #: src/utils.js:168
 msgid "Copied to clipboard"
-msgstr "क्लिपबोर्ड पर कॉपी किया गया"
+msgstr "Copiat al quichapapièrs"
 
 #: src/ui/annotation-popover.ui:13
 msgid "Highlight Style"
-msgstr "हाइलाइट शैली"
+msgstr "Estil de mesa en evidéncia"
 
 #: src/ui/annotation-popover.ui:20 src/ui/annotation-row.ui:63
 #: src/ui/bookmark-row.ui:33
 msgid "Delete"
-msgstr "हटाएँ"
+msgstr "Suprimir"
 
 #: src/ui/annotation-popover.ui:28 src/ui/book-item.ui:61 src/ui/book-row.ui:75
 #: src/ui/image-viewer.ui:62
 msgid "Menu"
-msgstr "मेनू"
+msgstr "Menú"
 
 #: src/ui/annotation-popover.ui:47
 msgid "Add Note…"
-msgstr "टिप्पणी जोड़ें…"
+msgstr "Apondre una nòta…"
 
 #: src/ui/book-item.ui:5 src/ui/book-row.ui:5
 msgid "Open in New Window"
-msgstr "नई विंडो में खोलें"
+msgstr "Dobrir dins una fenèstra novèla"
 
 #: src/ui/book-item.ui:15 src/ui/book-row.ui:15 src/ui/book-viewer.ui:25
 msgid "Export Annotations…"
-msgstr "एनोटेशन निर्यात करें…"
+msgstr "Exportar las anotacions…"
 
 #: src/ui/book-viewer.ui:5
 msgid "New Window"
-msgstr "नई विंडो"
+msgstr "Fenèstra novèla"
 
 #: src/ui/book-viewer.ui:11
 msgid "Open a Copy"
-msgstr "एक प्रति खोलें"
+msgstr "Dobrir una còpia"
 
 #: src/ui/book-viewer.ui:21
 msgid "Import Annotations…"
-msgstr "एनोटेशन आयात करें…"
+msgstr "Importar las anotacions…"
 
 #: src/ui/book-viewer.ui:37 src/ui/library.ui:42
 msgid "About Foliate"
-msgstr "Foliate के बारे में"
+msgstr "A prepaus de Foliate"
 
 #: src/ui/book-viewer.ui:45
 msgid "All Sections"
-msgstr "सभी अनुभाग"
+msgstr "Totas las seccions"
 
 #: src/ui/book-viewer.ui:50
 msgid "Current Section"
-msgstr "वर्तमान अनुभाग"
+msgstr "Seccion actuala"
 
 #: src/ui/book-viewer.ui:57
 msgid "Match Whole Words Only"
-msgstr "केवल संपूर्ण शब्दों का मिलान करें"
+msgstr "Trapar los mots entièrs solament"
 
 #: src/ui/book-viewer.ui:61
 msgid "Match Case"
-msgstr "वर्तनी मिलाएं"
+msgstr "Respectar la cassa"
 
 #: src/ui/book-viewer.ui:65
 msgid "Match Diacritics"
-msgstr "विशेषक मिलाएं"
+msgstr "Correspondéncia d’accents grafics"
 
 #: src/ui/book-viewer.ui:83
 msgid "Font & Layout Settings"
-msgstr "फॉन्ट और लेआउट सेटिंग्स"
+msgstr "Polissa e paramètres d’agençament"
 
 #: src/ui/book-viewer.ui:89
 msgid "Scrolled Mode"
-msgstr "स्क्रॉल मोड"
+msgstr "Mòde defilament"
 
 #: src/ui/book-viewer.ui:93
 msgid "Invert Colors in Dark Mode"
-msgstr "गहरे मोड में रंगों को उल्टा करें"
+msgstr "Intervertir las colors en mòde escur"
 
 #: src/ui/book-viewer.ui:97
 msgid "Autohide Cursor"
-msgstr "कर्सर को स्वतः छिपाएं"
+msgstr "Rescondre auto lo cursor"
 
 #: src/ui/book-viewer.ui:103
 msgid "Print…"
-msgstr "प्रिंट…"
+msgstr "Imprimir…"
 
 #: src/ui/book-viewer.ui:107
 msgid "Inspector"
-msgstr "निरीक्षक"
+msgstr "Inspector"
 
 #: src/ui/book-viewer.ui:167
 msgid "Book Cannot Be Opened"
-msgstr "किताब खोली नहीं जा सकती"
+msgstr "Se pòt pas dobrir lo libre"
 
 #: src/ui/book-viewer.ui:177
 msgid "Details"
-msgstr "विवरण"
+msgstr "Detalhs"
 
 #: src/ui/book-viewer.ui:193
 msgid "Open Another File…"
-msgstr "कोई अन्य फाइल खोलें…"
+msgstr "Dobrir un autre fichièr…"
 
 #: src/ui/book-viewer.ui:245
 msgid "Pin Sidebar"
-msgstr "साइडबार पिन करें"
+msgstr "Penjar lo panèl lateral"
 
 #: src/ui/book-viewer.ui:253
 msgid "Book Menu"
-msgstr "पुस्तक मेनू"
+msgstr "Menú libre"
 
 #: src/ui/book-viewer.ui:260 src/ui/selection-popover.ui:17
 msgid "Find"
-msgstr "खोजो1"
+msgstr "Cercar"
 
 #: src/ui/book-viewer.ui:276
 msgid "Find in book…"
-msgstr "पुस्तक में खोजें…"
+msgstr "Cercar dins lo libre…"
 
 #: src/ui/book-viewer.ui:313
 msgid "Contents"
-msgstr "अंतर्वस्तु"
+msgstr "Contengut"
 
 #: src/ui/book-viewer.ui:391
 msgid "Annotations"
-msgstr "एनोटेशन"
+msgstr "Anotacions"
 
 #: src/ui/book-viewer.ui:403
 msgid "Select some text to add annotations"
-msgstr "एनोटेशन जोड़ने के लिए कुछ पाठ चुनें"
+msgstr "Seleccionar de tèxte per ajustar d’anotacions"
 
 #: src/ui/book-viewer.ui:433
 msgid "Filter annotations…"
-msgstr "एनोटेशन फिल्टर करें…"
+msgstr "Filtrar las anotacions…"
 
 #: src/ui/book-viewer.ui:447
 msgid "Bookmarks"
-msgstr "बुकमार्क"
+msgstr "Marcapaginas"
 
 #: src/ui/book-viewer.ui:458
 msgid "No Bookmarks"
-msgstr "कोई बुकमार्क नहीं"
+msgstr "Cap de marcapagina"
 
 #: src/ui/book-viewer.ui:459
 msgid "Add some bookmarks to see them here"
-msgstr "यहां देखने के लिए कुछ बुकमार्क जोड़ें"
+msgstr "Ajustatz-ne per los veire aicí"
 
 #: src/ui/book-viewer.ui:498 src/ui/library-view.ui:42
 msgid "No Results Found"
-msgstr "कोई नतीजा नहीं मिला"
+msgstr "Cap de resultat pas trobat"
 
 #: src/ui/book-viewer.ui:499 src/ui/library-view.ui:43
 msgid "Try a different search"
-msgstr "भिन्न खोज का प्रयास करें"
+msgstr "Ensajatz una autra recèrca"
 
 #: src/ui/book-viewer.ui:542 src/ui/library.ui:102 src/ui/library.ui:160
 msgid "Sidebar"
-msgstr "साइडबार"
+msgstr "Panèl lateral"
 
 #: src/ui/book-viewer.ui:556
 msgid "View Menu"
-msgstr "मेनू देखें"
+msgstr "Afichar lo menú"
 
 #: src/ui/book-viewer.ui:569 src/ui/image-viewer.ui:41
 msgid "Zoom Out"
-msgstr "ज़ूम आउट"
+msgstr "Zoom avant"
 
 #: src/ui/book-viewer.ui:576 src/ui/image-viewer.ui:48
 msgid "Reset Zoom"
-msgstr "ज़ूम रीसेट"
+msgstr "Reïnicializar lo zoom"
 
 #: src/ui/book-viewer.ui:585 src/ui/image-viewer.ui:55
 msgid "Zoom In"
-msgstr "ज़ूम इन"
+msgstr "Zoom arrièr"
 
 #: src/ui/book-viewer.ui:601
 msgid "Follow System Style"
-msgstr "सिस्टम शैली का पालन"
+msgstr "Seguir lo tèma del sistèma"
 
 #: src/ui/book-viewer.ui:611
 msgid "Light Style"
-msgstr "हल्की शैली"
+msgstr "Estil clar"
 
 #: src/ui/book-viewer.ui:621
 msgid "Dark Style"
-msgstr "गहरी शैली"
+msgstr "Estil escur"
 
 #: src/ui/book-viewer.ui:636 src/ui/library.ui:26
 msgid "Fullscreen"
-msgstr "फ़ुलस्क्रीन"
+msgstr "Ecran complèt"
 
 #: src/ui/export-dialog.ui:5
 msgid "Export Annotations"
-msgstr "एनोटेशन निर्यात करें"
+msgstr "Exportar las anotacions"
 
 #: src/ui/export-dialog.ui:16
 msgid "Export"
-msgstr "निर्यात"
+msgstr "Exportar"
 
 #: src/ui/export-dialog.ui:28
 msgid "Format"
-msgstr "प्रारूप"
+msgstr "Format"
 
 #: src/ui/export-dialog.ui:29
 msgid "Choose “JSON” if you plan on importing annotations back to Foliate"
 msgstr ""
-"यदि आप एनोटेशन को Foliate में वापस आयात करने की योजना बना रहे हैं तो \"JSON\" चुनें"
+"Causissètz « JSON » s’avètz previst d’importar d’anotacion dins Foliate"
 
 #: src/ui/export-dialog.ui:33
 msgid "JSON"
@@ -814,285 +814,291 @@ msgstr "HTML"
 
 #: src/ui/export-dialog.ui:35
 msgid "Markdown"
-msgstr "मार्कडाउन"
+msgstr "Markdown"
 
 #: src/ui/export-dialog.ui:36
 msgid "Org Mode"
-msgstr "संग मोड"
+msgstr "Org Mode"
 
 #: src/ui/image-viewer.ui:6 src/ui/navbar.ui:302 src/ui/selection-popover.ui:7
 msgid "Copy"
-msgstr "कॉपी"
+msgstr "Copiar"
 
 #: src/ui/image-viewer.ui:10
 msgid "Save As…"
-msgstr "ऐसे सहेजें…"
+msgstr "Enregistrar jos…"
 
 #: src/ui/image-viewer.ui:25
 msgid "Rotate 90° Counter-Clockwise"
-msgstr "90° वामावर्त घुमाएँ"
+msgstr "Rotacion 90° sens antiorari"
 
 #: src/ui/image-viewer.ui:32
 msgid "Rotate 90° Clockwise"
-msgstr "90° दक्षिणावर्त घुमाएँ"
+msgstr "Rotacion 90° sens orari"
 
 #: src/ui/import-dialog.ui:7
 msgid "Import Annotations"
-msgstr "एनोटेशन आयात करें"
+msgstr "Importar las anotacions"
 
 #: src/ui/import-dialog.ui:21
 msgid "Import"
-msgstr "आयात"
+msgstr "Importar"
 
 #: src/ui/import-dialog.ui:33
 msgid ""
 "The identifier doesn’t match. These annotations may not be for this book."
-msgstr "पहचानकर्ता मेल नहीं खाता. ये टिप्पणियाँ इस पुस्तक के लिए नहीं हो सकती हैं।"
+msgstr ""
+"L’identificant correspond pas. Aquestas anotacions son benlèu pas per "
+"aqueste libre."
 
 #: src/ui/import-dialog.ui:34
 msgid "Import Anyway"
-msgstr "फिर भी आयात करें"
+msgstr "Importar malgrat tot"
 
 #: src/ui/library.ui:6
 msgid "List View"
-msgstr "सूची दृश्य"
+msgstr "Vista en lista"
 
 #: src/ui/library.ui:11
 msgid "Grid View"
-msgstr "जालक दृश्य"
+msgstr "Vista en grasilha"
 
 #: src/ui/library.ui:20 src/ui/library-view.ui:27
 msgid "Open…"
-msgstr "खोलें…"
+msgstr "Dobrir…"
 
 #: src/ui/library.ui:67
 msgid "Main Menu"
-msgstr "मुख्य मेनू"
+msgstr "Menú principal"
 
 #: src/ui/library.ui:110
 msgid "Open"
-msgstr "खोले"
+msgstr "Dobrir"
 
 #: src/ui/library.ui:117
 msgid "Library Menu"
-msgstr "लाइब्रेरी मेनू"
+msgstr "Menú bibliotèca"
 
 #: src/ui/library.ui:134
 msgid "Search library…"
-msgstr "लाइब्रेरी खोजें…"
+msgstr "Cercar dins la bibliotèca…"
 
 #: src/ui/library.ui:168 src/ui/navbar.ui:22
 msgid "Back"
-msgstr "पीछे"
+msgstr "Retorn"
 
 #: src/ui/library.ui:175 src/ui/navbar.ui:36
 msgid "Forward"
-msgstr "आगे"
+msgstr "En avant"
 
 #: src/ui/library-view.ui:21
 msgid "No Books Yet"
-msgstr "अभी तक कोई किताब नहीं"
+msgstr "Cap de libre pel moment"
 
 #: src/ui/library-view.ui:22
 msgid "Open a book to start reading"
-msgstr "पढ़ना शुरू करने के लिए एक किताब खोलें"
+msgstr "Dobrir un libre per començar de legir"
 
 #: src/ui/navbar.ui:62 src/ui/navbar.ui:253
 msgid "Location"
-msgstr "स्थान"
+msgstr "Emplaçament"
 
 #: src/ui/navbar.ui:91
 msgid "Narration"
-msgstr "वर्णन"
+msgstr "Narracion"
 
 #: src/ui/navbar.ui:162
 msgid "Time Left in Section"
-msgstr "अनुभाग में शेष समय"
+msgstr "Temps restant dins la seccion"
 
 #: src/ui/navbar.ui:192
 msgid "Time Left in Book"
-msgstr "किताब में बचा हुआ समय"
+msgstr "Temps restant dins lo libre"
 
 #: src/ui/navbar.ui:226 src/ui/view-preferences-window.ui:159
 msgid "Page"
-msgstr "पृष्ठ"
+msgstr "Pagina"
 
 #: src/ui/navbar.ui:309
 msgid "Paste and Go"
-msgstr "पेस्ट करें और जाएं"
+msgstr "Pegar e anar"
 
 #: src/ui/navbar.ui:322
 msgid "Section"
-msgstr "अनुभाग"
+msgstr "Seccion"
 
 #: src/ui/navbar.ui:388
 msgid "First Section"
-msgstr "प्रथम अनुभाग"
+msgstr "Primièra seccion"
 
 #: src/ui/navbar.ui:397
 msgid "Previous Section"
-msgstr "पिछला अनुभाग"
+msgstr "Seccion precedenta"
 
 #: src/ui/navbar.ui:405
 msgid "Jump To…"
-msgstr "यहाँ जाए…"
+msgstr "Anar a…"
 
 #: src/ui/navbar.ui:414
 msgid "Next Section"
-msgstr "अगला अनुभाग"
+msgstr "Seccion seguenta"
 
 #: src/ui/navbar.ui:423
 msgid "Last Section"
-msgstr "अंतिम अनुभाग"
+msgstr "Darrièra seccion"
 
 #: src/ui/selection-popover.ui:12
 msgid "Highlight"
-msgstr "हाइलाइट"
+msgstr "Susbrilhança"
 
 #: src/ui/selection-popover.ui:30
 msgid "Speak from Here"
-msgstr "यहाँ से बोलो"
+msgstr "Parlar d’aquí"
 
 #: src/ui/selection-popover.ui:36
 msgid "Copy with Citation"
-msgstr "उद्धरण सहित प्रतिलिपि"
+msgstr "Copiar amb citacion"
 
 #: src/ui/selection-popover.ui:40
 msgid "Copy Identifier"
-msgstr "पहचानकर्ता कॉपी करें"
+msgstr "Copiar l’identificant"
 
 #: src/ui/selection-popover.ui:44
 msgid "Print Selection…"
-msgstr "चयन प्रिंट करें…"
+msgstr "Imprimir la seleccion…"
 
 #: src/ui/tts-box.ui:34
 msgid "Speed"
-msgstr "गति"
+msgstr "Velocitat"
 
 #: src/ui/tts-box.ui:67
 msgid "Pitch"
-msgstr "स्तर"
+msgstr "Ton"
 
 #: src/ui/tts-box.ui:123
 msgid "Play/Pause"
-msgstr "चलाएं/रोकें"
+msgstr "Lectura/Pausa"
 
 #: src/ui/tts-box.ui:141
 msgid "Stop"
-msgstr "रोकें"
+msgstr "Arrestar"
 
 #: src/ui/view-preferences-window.ui:5
 msgid "Font"
-msgstr "फॉन्ट"
+msgstr "Polissa"
 
 #: src/ui/view-preferences-window.ui:9
 msgid "Font Size"
-msgstr "फॉन्ट आकार"
+msgstr "Talha de polissa"
 
 #: src/ui/view-preferences-window.ui:12
 msgid "Default Font Size"
-msgstr "डिफॉल्ट फॉन्ट आकार"
+msgstr "Talha de polissa per defaut"
 
 #: src/ui/view-preferences-window.ui:25
 msgid "Minimum Font Size"
-msgstr "न्यूनतम फॉन्ट आकार"
+msgstr "Talha minimala de la polissa"
 
 #: src/ui/view-preferences-window.ui:40
 msgid "Font Family"
-msgstr "फॉन्ट परिवार"
+msgstr "Familha de polissa"
 
 #: src/ui/view-preferences-window.ui:43
 msgid "Default Font"
-msgstr "डिफॉल्ट फॉन्ट"
+msgstr "Polissa per defaut"
 
 #: src/ui/view-preferences-window.ui:47
 msgid "Serif"
-msgstr "सेरिफ़"
+msgstr "Serif"
 
 #: src/ui/view-preferences-window.ui:48
 msgid "Sans-serif"
-msgstr "सैन्स-सेरिफ़"
+msgstr "Sans-serif"
 
 #: src/ui/view-preferences-window.ui:56
 msgid "Override Publisher Font"
-msgstr "प्रकाशक फॉन्ट ओवरराइड करें"
+msgstr "Subrecargar la polissa de l’editor"
 
 #: src/ui/view-preferences-window.ui:71
 msgid "Serif Font"
-msgstr "सेरिफ़ फॉन्ट"
+msgstr "Polissa serif"
 
 #: src/ui/view-preferences-window.ui:84
 msgid "Sans-Serif Font"
-msgstr "सैन्स-सेरिफ़ फॉन्ट"
+msgstr "Polissa sans-serif"
 
 #: src/ui/view-preferences-window.ui:97
 msgid "Monospace Font"
-msgstr "मोनोस्पेस फॉन्ट"
+msgstr "Polissa de chassa fixa"
 
 #: src/ui/view-preferences-window.ui:114
 msgid "Layout"
-msgstr "विन्यास"
+msgstr "Agençament"
 
 #: src/ui/view-preferences-window.ui:118
 msgid "Paragraph"
-msgstr "अनुच्छेद"
+msgstr "Paragraf"
 
 #: src/ui/view-preferences-window.ui:121
 msgid "Line Height"
-msgstr "रेखा की ऊंचाई"
+msgstr "Nautor de linha"
 
 #: src/ui/view-preferences-window.ui:135
 msgid "Full Justification"
-msgstr "पूर्ण औचित्य"
+msgstr "Justificacion"
 
 #: src/ui/view-preferences-window.ui:146
 msgid "Hyphenation"
-msgstr "हायफ़नेशन"
+msgstr "Copadura dels mots"
 
 #: src/ui/view-preferences-window.ui:162
 msgid "Margins"
-msgstr "मार्जिन"
+msgstr "Marges"
 
 #: src/ui/view-preferences-window.ui:176
 msgid "Maximum Number of Columns"
-msgstr "कॉलमों की अधिकतम संख्या"
+msgstr "Nombre maximum de colomnas"
 
 #: src/ui/view-preferences-window.ui:189
 msgid "Maximum Inline Size"
-msgstr "अधिकतम इनलाइन आकार"
+msgstr "Talha maximala de linha"
 
 #: src/ui/view-preferences-window.ui:190
 msgid "Maximum column width (horizontal writing) or height (vertical writing)"
-msgstr "अधिकतम स्तंभ चौड़ाई (क्षैतिज लेखन) या ऊंचाई (ऊर्ध्वाधर लेखन)"
+msgstr ""
+"Largor maximala de colomna (escritura orizontala) o nautor (escritura "
+"verticala)"
 
 #: src/ui/view-preferences-window.ui:203
 msgid "Maximum Block Size"
-msgstr "अधिकतम ब्लॉक आकार"
+msgstr "Talah maximala dels paragrafes"
 
 #: src/ui/view-preferences-window.ui:204
 msgid "Maximum height (horizontal writing) or width (vertical writing)"
-msgstr "अधिकतम ऊंचाई (क्षैतिज लेखन) या चौड़ाई (ऊर्ध्वाधर लेखन)"
+msgstr "Largor maximala (escritura orizontala) o nautor (escritura verticala)"
 
 #: src/ui/view-preferences-window.ui:221
 msgid "Color"
-msgstr "रंग"
+msgstr "Color"
 
 #: src/ui/view-preferences-window.ui:240
 msgid "Behavior"
-msgstr "व्यवहार"
+msgstr "Compòrtament"
 
 #: src/ui/view-preferences-window.ui:246
 msgid "Reduce Animation"
-msgstr "सजीवता कम करें"
+msgstr "Redusir l’animacion"
 
 #: data/com.github.johnfactotum.Foliate.desktop.in:5
 msgid "E-Book Viewer"
-msgstr "ई-पुस्तक दर्शक"
+msgstr "Visionadoira de libre electronic"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/com.github.johnfactotum.Foliate.desktop.in:14
 msgid "Ebook;Book;EPUB;Viewer;Reader;"
-msgstr "Ebook;Book;EPUB;Viewer;Reader;ईबुक;पुस्तक;दर्शक;पाठक;"
+msgstr ""
+"Ebook;libre;EPUB;visualizaire;visualizaira;visionador;visionadoira;lector;"
+"legeire;legeira;"
 
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:10
 msgid ""
@@ -1100,49 +1106,50 @@ msgid ""
 "tailored for GNOME. Immerse yourself in a distraction-free interface, with "
 "customization features designed to match your unique preferences."
 msgstr ""
-"GNOME के लिए तैयार किए गए आधुनिक ई-पुस्तक पाठक Foliate के साथ पढ़ने का एक नया अध्याय "
-"खोजें। आपकी विशिष्ट प्राथमिकताओं से मेल खाने के लिए डिज़ाइन की गई अनुकूलन सुविधाओं के साथ, "
-"अपने आप को एक व्याकुलता-मुक्त इंटरफ़ेस में डुबो दें।"
+"Descobrissètz un capítol novèl en legissent amb Foliate, lo lector d’e-book "
+"modèrn fargat per GNOME. Immergissètz-vos dins una interfàcia sens cap de "
+"distraccion, amb de foncionalitats personalizablas concebudas per "
+"correspondre a vòstras preferéncias unicas."
 
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:11
 msgid "Features include:"
-msgstr "शामिल विशेषताएं:"
+msgstr "Foncionalitats inclusas :"
 
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:13
 msgid "Open EPUB, Mobipocket, Kindle, FB2, CBZ, and PDF files"
-msgstr "EPUB, Mobipocket, Kindle, FB2, CBZ और PDF फाइलें खोलें"
+msgstr "Dobrir de fichièrs EPUB, Mobipocket, Kindle, FB2, CBZ, e PDF"
 
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:14
 msgid "Paginated mode and scrolled mode"
-msgstr "पृष्ठांकित मोड और स्क्रॉल मोड"
+msgstr "Mòde paginat e defilament"
 
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:15
 msgid "Customize font and line-spacing"
-msgstr "फॉन्ट और पंक्ति-रिक्ति को अनुकूलित करें"
+msgstr "Personalizar la polissa e la nautor de linha"
 
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:16
 msgid "Light, sepia, dark, and invert mode"
-msgstr "हल्का, सेपिया, गहरा और उल्टा मोड"
+msgstr "Mòde clar, sepia, escur e intervertir"
 
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:17
 msgid "Reading progress slider with chapter marks"
-msgstr "अध्याय चिह्नों के साथ पढ़ने की प्रगति स्लाइडर"
+msgstr "Barra de progression de la lectura amb marcadors pels capítols"
 
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:18
 msgid "Bookmarks and annotations"
-msgstr "बुकमार्क और एनोटेशन"
+msgstr "Marcapaginas e anotacions"
 
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:19
 msgid "Find in book"
-msgstr "पुस्तक में खोजें"
+msgstr "Cercar dins lo libre"
 
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:20
 msgid "Quick dictionary lookup"
-msgstr "त्वरित शब्दकोश खोज"
+msgstr "Consulta rapida del diccionari"
 
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:30
 msgid "Book"
-msgstr "पुस्तक"
+msgstr "Libre"
 
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:31
 msgid "EPUB"
@@ -1150,15 +1157,15 @@ msgstr "EPUB"
 
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:32
 msgid "Ebook"
-msgstr "ई-पुस्तक"
+msgstr "Ebook"
 
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:33
 msgid "Reader"
-msgstr "पाठक"
+msgstr "Lector"
 
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:34
 msgid "Viewer"
-msgstr "दर्शक"
+msgstr "Visionadoira"
 
 #: data/com.github.johnfactotum.Foliate.metainfo.xml.in:63
 msgid ""
@@ -1166,64 +1173,7 @@ msgid ""
 "and the latest platform libraries, GTK 4 and Libadwaita, with refreshed UI "
 "and improved performance."
 msgstr ""
-"Foliate को नई ई-पुस्तक प्रतिपादन लाइब्रेरी और नवीनतम प्लेटफॉर्म लाइब्रेरी, GTK 4 और "
-"Libadwaita के साथ ताज़ा UI और बेहतर प्रदर्शन के साथ फिर से लिखा गया है।"
-
-#~ msgid "John Factotum"
-#~ msgstr "जॉन फैक्टोटम"
-
-#, fuzzy
-#~ msgid "Reference"
-#~ msgstr "संदर्भ"
-
-#, fuzzy
-#~ msgid "Go to Reference"
-#~ msgstr "संदर्भ पर जाएँ"
-
-#~ msgid "Keyboard Shortcuts"
-#~ msgstr "कीबोर्ड शॉर्टकट"
-
-#~ msgid "Preferences"
-#~ msgstr "प्राथमिकताएँ"
-
-#~ msgid "Speak"
-#~ msgstr "बोलना"
-
-#, fuzzy
-#~ msgid "Fold Sidebar"
-#~ msgstr "साइडबार को मोड़ें"
-
-#~ msgid "Save File"
-#~ msgstr "फ़ाइल सहेजें"
-
-#, fuzzy
-#~ msgid "Choose highlight style"
-#~ msgstr "हाइलाइट शैली चुनें"
-
-#~ msgid "More"
-#~ msgstr "और"
-
-#, fuzzy
-#~ msgid "About this book"
-#~ msgstr "इस पुस्तक के बारे में"
-
-#, fuzzy
-#~ msgid "Toggle sidebar"
-#~ msgstr "साइडबार टॉगल करें"
-
-#~ msgid "Restore zoom"
-#~ msgstr "ज़ूम पुनर्स्थापित करें"
-
-#~ msgid "Go to previous page"
-#~ msgstr "पिछले पृष्ठ पर जाएं"
-
-#~ msgid "Go back to previous location"
-#~ msgstr "पिछले स्थान पर वापस जाएँ"
-
-#, fuzzy
-#~ msgid "Go to next section"
-#~ msgstr "अगले खंड पर जाएँ"
-
-#, fuzzy
-#~ msgid "Go to last section"
-#~ msgstr "अंतिम खंड पर जाएँ"
+"Foliate foguèt reinscrich de zèro amb una bibliotèca d’e-book novèla e las "
+"darrièras bibliotècas de la platafòrma, GTK 4 e Libadwaita, amb un "
+"refrescament de l’interfàcia utilizaire e de melhoraments de las "
+"performanças."

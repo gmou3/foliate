@@ -19,7 +19,7 @@ import { AnnotationPopover, importAnnotations, exportAnnotations } from './annot
 import { SelectionPopover } from './selection-tools.js'
 import { ImageViewer } from './image-viewer.js'
 import { formatAuthors, makeBookInfoWindow } from './book-info.js'
-import { themes, invertTheme } from './themes.js'
+import { themes, invertTheme, themeCssProvider } from './themes.js'
 import { dataStore } from './data.js'
 
 var sectionFractions
@@ -175,6 +175,7 @@ GObject.registerClass({
             enable_hyperlink_auditing: false,
             enable_html5_database: false,
             enable_html5_local_storage: false,
+            enable_smooth_scrolling: false,
         }),
         // needed for playing media overlay
         website_policies: new WebKit.WebsitePolicies({
@@ -491,6 +492,8 @@ export const BookViewer = GObject.registerClass({
             this._zoom_button.label = format.percent(webView.zoom_level))
         this._zoom_button.label = format.percent(this._view.webView.zoom_level)
 
+        Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(),
+            themeCssProvider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
         let lastThemeClass
         const recolorUI = view => {
             const theme = themes.find(theme => theme.name === view.theme) ?? themes[0]
@@ -675,7 +678,7 @@ export const BookViewer = GObject.registerClass({
         utils.addPropertyActions(Adw.StyleManager.get_default(), ['color-scheme'], actions)
         this.insert_action_group('view', this._view.actionGroup)
         this.insert_action_group('viewer', actions)
-        this.add_controller(utils.addShortcuts({
+        const shortcuts = {
             'F9': 'viewer.toggle-sidebar',
             '<ctrl>f|slash': 'viewer.toggle-search',
             '<ctrl>l': 'viewer.show-location',
@@ -704,18 +707,10 @@ export const BookViewer = GObject.registerClass({
             '<alt>Left': 'view.back',
             '<alt>Right': 'view.forward',
             '<ctrl>p': 'view.print',
-        }))
+        }
+        this.add_controller(utils.addShortcuts(shortcuts))
         // TODO: disable these when pinch zoomed
-        this._view.webView.add_controller(utils.addShortcuts({
-            'Page_Up': 'view.prev',
-            'Page_Down': 'view.next',
-            'Up': 'view.scroll-up',
-            'Down': 'view.scroll-down',
-            'Left': 'view.go-left',
-            'Right': 'view.go-right',
-            '<alt>Left': 'view.back',
-            '<alt>Right': 'view.forward',
-        }))
+        this._view.webView.add_controller(utils.addShortcuts(shortcuts))
     }
     #onError({ id, message, stack }) {
         const desc = id === 'not-found' ? _('File not found')
