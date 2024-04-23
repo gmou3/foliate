@@ -463,7 +463,6 @@ export const BookViewer = GObject.registerClass({
     #book
     #cover
     #data
-    #ttsPaused
     constructor(params) {
         super(params)
         utils.connect(this._view, {
@@ -824,7 +823,7 @@ export const BookViewer = GObject.registerClass({
             })
         }}))
     }
-    #showSelection({ type, value, text, lang, pos: { point, dir } }) {
+    #showSelection({ type, value, text, content, lang, pos: { point, dir } }) {
         if (type === 'annotation') return new Promise(resolve => {
             this._annotation_view.scrollToCFI(value)
             const annotation = this.#data.annotations.get(value)
@@ -846,8 +845,13 @@ export const BookViewer = GObject.registerClass({
                 'highlight': () => {
                     resolved = true
                     const annotation = this.#data.annotations.get(value)
+                    // NOTE: `content` is the `Range.toString()`
+                    // whereas `text` is the `Selection.toString()`;
+                    // not sure which would be better for this use case,
+                    // but my understanding is that a `TextQuoteSelector` is
+                    // expected to be the text itself, not the rendered result
                     this.#data.addAnnotation(annotation ?? {
-                        value, text,
+                        value, text: content,
                         color: this.highlight_color,
                         created: new Date().toISOString(),
                     }).then(() => {
@@ -857,7 +861,7 @@ export const BookViewer = GObject.registerClass({
                     })
                 },
                 'search': () => {
-                    this._search_entry.text = text
+                    this._search_entry.text = content
                     this._search_bar.search_mode_enabled = true
                     this._flap.show_sidebar = true
                     this._search_view.doSearch()
