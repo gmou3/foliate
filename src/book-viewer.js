@@ -18,7 +18,7 @@ import './navbar.js'
 import { AnnotationPopover, importAnnotations, exportAnnotations } from './annotations.js'
 import { SelectionPopover } from './selection-tools.js'
 import { ImageViewer } from './image-viewer.js'
-import { formatAuthors, makeBookInfoWindow } from './book-info.js'
+import { formatLanguageMap, formatAuthors, makeBookInfoWindow } from './book-info.js'
 import { themes, invertTheme, themeCssProvider } from './themes.js'
 import { dataStore } from './data.js'
 
@@ -92,7 +92,7 @@ const ViewPreferencesWindow = GObject.registerClass({
         'theme-flow-box',
         'reduce-animation',
     ],
-}, class extends Adw.PreferencesWindow {
+}, class extends Adw.PreferencesDialog {
     constructor(params) {
         super(params)
         this.font_settings.bindProperties({
@@ -400,6 +400,7 @@ GObject.registerClass({
     mediaOverlayStart() { return this.#exec('reader.view.startMediaOverlay') }
     mediaOverlayPause() { return this.#exec('reader.view.mediaOverlay.pause') }
     mediaOverlayResume() { return this.#exec('reader.view.mediaOverlay.resume') }
+    mediaOverlayStop() { return this.#exec('reader.view.mediaOverlay.stop') }
     mediaOverlayPrev() { return this.#exec('reader.view.mediaOverlay.prev') }
     mediaOverlayNext() { return this.#exec('reader.view.mediaOverlay.next') }
     mediaOverlaySetVolume(x) { return this.#exec('reader.view.mediaOverlay.setVolume', x) }
@@ -658,6 +659,7 @@ export const BookViewer = GObject.registerClass({
             'start': () => this._view.mediaOverlayStart(),
             'pause': () => this._view.mediaOverlayPause(),
             'resume': () => this._view.mediaOverlayResume(),
+            'stop': () => this._view.mediaOverlayStop(),
             'backward': () => this._view.mediaOverlayPrev(),
             'forward': () => this._view.mediaOverlayNext(),
             'notify::volume': box => this._view.mediaOverlaySetVolume(box.volume),
@@ -727,10 +729,10 @@ export const BookViewer = GObject.registerClass({
     async #onBookReady({ book, reader }) {
         this.#book = book
         book.metadata ??= {}
-        this.root.title = book.metadata.title ?? ''
-        this._book_title.label = book.metadata.title ?? ''
+        this._book_title.label = formatLanguageMap(book.metadata.title)
         this._book_author.label = formatAuthors(book.metadata)
-        this._book_author.visible = !!book.metadata?.author?.length
+        this._book_author.visible = !!this._book_author.label
+        this.root.title = this._book_title.label
 
         const { language: { direction } } = reader.view
         utils.setDirection(this._book_info, direction)
@@ -748,7 +750,7 @@ export const BookViewer = GObject.registerClass({
         this._navbar.setDirection(book.dir)
         this._navbar.loadPageList(book.pageList, reader.pageTotal)
         this._navbar.loadLandmarks(book.landmarks)
-        this._navbar.setTTSType(book.media?.duration?.[''] ? 'media-overlay' : 'tts')
+        this._navbar.setTTSType(book.media?.duration ? 'media-overlay' : 'tts')
 
         const cover = await this._view.getCover()
         this.#cover = cover
@@ -1001,10 +1003,8 @@ export const BookViewer = GObject.registerClass({
         const win = new ViewPreferencesWindow({
             view_settings: this._view.viewSettings,
             font_settings: this._view.fontSettings,
-            modal: true,
-            transient_for: this.root,
         })
-        win.present()
+        win.present(this.root)
     }
     bookmark() {
         this._bookmark_view.toggle()

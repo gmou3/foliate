@@ -1,4 +1,4 @@
-import './widgets.js'
+import '../common/widgets.js'
 import { REL, SYMBOL, isOPDSCatalog, getPublication, getFeed, getSearch, getOpenSearch } from '../foliate-js/opds.js'
 
 const emit = x => globalThis.webkit.messageHandlers.opds
@@ -564,8 +564,8 @@ const renderFeed = async (feed, baseURL) => {
             else if (atomSearch) renderSearch({
                 metadata: { title: atomSearch.title },
                 // NOTE: no full OpenSearch support here
-                search: map => atomSearch.href.replaceAll('{searchTerms}',
-                    encodeURIComponent(map.get(null).get('searchTerms'))),
+                search: map => resolveURL(atomSearch.href.replaceAll('{searchTerms}',
+                    encodeURIComponent(map.get(null).get('searchTerms'))), baseURL),
                 params: [{ name: 'searchTerms' }],
             })
         }
