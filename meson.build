@@ -1,5 +1,5 @@
 project('com.github.johnfactotum.Foliate',
-    version: '3.1.1',
+    version: '3.2.0',
     meson_version: '>= 0.59.0',
 )
 
@@ -8,7 +8,7 @@ i18n = import('i18n')
 
 gjs = dependency('gjs-1.0', version: '>= 1.76')
 dependency('gtk4', version: '>= 4.12')
-dependency('libadwaita-1', version: '>= 1.6')
+dependency('libadwaita-1', version: '>= 1.4')
 dependency('webkitgtk-6.0', version: '>= 2.40.1')
 
 subdir('data')

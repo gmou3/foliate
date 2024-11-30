@@ -1,4 +1,5 @@
-<img src="data/com.github.johnfactotum.Foliate.svg" align="left">
+<img src="data/com.github.johnfactotum.Foliate.svg" align="left" style="margin-right:8px"> 
+<br><br>
 
 # Foliate
 
@@ -12,7 +13,7 @@ Read books in style.
 
 - `gjs` (>= 1.76)
 - `gtk4` (>= 4.12)
-- `libadwaita` (>= 1.6; `gir1.2-adw-1` in Debian-based distros)
+- `libadwaita` (>= 1.4; `gir1.2-adw-1` in Debian-based distros)
 - `webkitgtk-6.0` (`webkitgtk6.0` in Fedora; `gir1.2-webkit-6.0` in Debian-based distros)
 
 #### Optional Dependencies
